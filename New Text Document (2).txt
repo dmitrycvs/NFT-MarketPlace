@@ -1,0 +1,1 @@
+https://twitter.com/i/oauth2/authorize?state=manta-bonk-state&code_challenge_method=plain&code_challenge=challenge-manta-bonk&client_id=VzhLXzl2SS1QZWViMVdXYTdPdTE6MTpjaQ&scope=tweet.read+users.read+follows.write&response_type=code&redirect_uri=https%3A%2F%2Fapi.bonk.manta.network%2Fuser%2Fbind_twitter
