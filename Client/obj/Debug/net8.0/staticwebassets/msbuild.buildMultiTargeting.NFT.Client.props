@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\NFT.Client.props" />
+</Project>
