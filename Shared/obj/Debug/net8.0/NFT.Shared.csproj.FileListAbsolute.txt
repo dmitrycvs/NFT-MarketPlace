@@ -1,0 +1,11 @@
+D:\NFT\NFT\Shared\bin\Debug\net8.0\NFT.Shared.deps.json
+D:\NFT\NFT\Shared\bin\Debug\net8.0\NFT.Shared.dll
+D:\NFT\NFT\Shared\bin\Debug\net8.0\NFT.Shared.pdb
+D:\NFT\NFT\Shared\obj\Debug\net8.0\NFT.Shared.GeneratedMSBuildEditorConfig.editorconfig
+D:\NFT\NFT\Shared\obj\Debug\net8.0\NFT.Shared.AssemblyInfoInputs.cache
+D:\NFT\NFT\Shared\obj\Debug\net8.0\NFT.Shared.AssemblyInfo.cs
+D:\NFT\NFT\Shared\obj\Debug\net8.0\NFT.Shared.csproj.CoreCompileInputs.cache
+D:\NFT\NFT\Shared\obj\Debug\net8.0\NFT.Shared.dll
+D:\NFT\NFT\Shared\obj\Debug\net8.0\refint\NFT.Shared.dll
+D:\NFT\NFT\Shared\obj\Debug\net8.0\NFT.Shared.pdb
+D:\NFT\NFT\Shared\obj\Debug\net8.0\ref\NFT.Shared.dll
