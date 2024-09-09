@@ -1,4 +1,6 @@
-﻿using NFT.Shared.DataTransferObjects.Users;
+﻿using MediatR;
+using NFT.Shared.DataTransferObjects.Pagination;
+using NFT.Shared.DataTransferObjects.Users;
 using System.Net.Http.Json;
 
 namespace NFT.Client.Services.UserServices
@@ -12,25 +14,7 @@ namespace NFT.Client.Services.UserServices
             _httpClient = httpClient;
         }
 
-       /* public async Task<List<GetUserDto>> GetNotPaginatedUsers()
-        {
-            var result = await _httpClient.GetAsync("api/user/list");
-            return await result.Content.ReadFromJsonAsync<List<GetUserDto>>();
-        }
-
-        public async Task<GetUserDto> GetUserById(Guid id)
-        {
-            var result = await _httpClient.GetAsync($"api/user/{id}");
-            return await result.Content.ReadFromJsonAsync<GetUserDto>();
-        }
-
-        public async Task<PaginationResult<GetUserDto>> GetUsers(UserListQueryDto queryModel)
-        {
-            var result = await _httpClient.PostAsJsonAsync("api/user/all", queryModel);
-            //if (!await _snackbarNotification.IsNotSuccessfull(result)) return default;
-            return await result.Content.ReadFromJsonAsync<PaginationResult<GetUserDto>>();
-        }*/
-
+      
         public async Task<Guid> CreateUser(UserDto request)
         {
             var result = await _httpClient.PostAsJsonAsync("api/user/create", request);
@@ -38,23 +22,10 @@ namespace NFT.Client.Services.UserServices
             return await result.Content.ReadFromJsonAsync<Guid>();
         }
 
-       /* public async Task<Guid> RegisterUser(RegisterUserDto request)
-        {
-            var result = await _httpClient.PostAsJsonAsync("api/user/register", request);
-            //if (!await _snackbarNotification.IsSuccessfull(result)) return default;
-            return await result.Content.ReadFromJsonAsync<Guid>();
-        }
-
-        public async Task<Unit> EditUser(EditUserDto request)
+        public async Task<Unit> EditUser(UserDto request)
         {
             var result = await _httpClient.PutAsJsonAsync($"api/user/edit", request);
             //if (!await _snackbarNotification.IsSuccessfull(result)) return default;
-            return await result.Content.ReadFromJsonAsync<Unit>();
-        }
-
-        public async Task<Unit> ArchiveUser(Guid id)
-        {
-            var result = await _httpClient.PutAsJsonAsync($"api/user/archive", id);
             return await result.Content.ReadFromJsonAsync<Unit>();
         }
 
@@ -65,19 +36,55 @@ namespace NFT.Client.Services.UserServices
             return await result.Content.ReadFromJsonAsync<Unit>();
         }
 
-        public async Task<LoginResult> Login(UserLoginDto request)
+        public async Task<List<UserDto>> GetNotPaginatedUsers()
+        {
+            var result = await _httpClient.GetAsync("api/user/list");
+            return await result.Content.ReadFromJsonAsync<List<UserDto>>();
+        }
+
+        public async Task<UserDto> GetUserById(Guid id)
+        {
+            var result = await _httpClient.GetAsync($"api/user/{id}");
+            return await result.Content.ReadFromJsonAsync<UserDto>();
+        }
+
+
+        public async Task<PaginationResult<UserDto>> GetUsers(UserDto queryModel)
+        {
+            var result = await _httpClient.PostAsJsonAsync("api/user/all", queryModel);
+            //if (!await _snackbarNotification.IsNotSuccessfull(result)) return default;
+            return await result.Content.ReadFromJsonAsync<PaginationResult<UserDto>>();
+        }
+
+
+        /* public async Task<Guid> RegisterUser(RegisterUserDto request)
+         {
+             var result = await _httpClient.PostAsJsonAsync("api/user/register", request);
+             //if (!await _snackbarNotification.IsSuccessfull(result)) return default;
+             return await result.Content.ReadFromJsonAsync<Guid>();
+         }*/
+
+
+        /* public async Task<Unit> ArchiveUser(Guid id)
+         {
+             var result = await _httpClient.PutAsJsonAsync($"api/user/archive", id);
+             return await result.Content.ReadFromJsonAsync<Unit>();
+         }*/
+
+
+        /*public async Task<LoginResult> Login(UserLoginDto request)
         {
             var result = await _httpClient.PostAsJsonAsync("api/user/login", request);
             return await result.Content.ReadFromJsonAsync<LoginResult>();
-        }
+        }*/
 
-        public async Task<string> Logout()
+        /*public async Task<string> Logout()
         {
             var result = await _httpClient.GetAsync("api/user/log-out");
             return await result.Content.ReadAsStringAsync();
-        }
+        }*/
 
-        public async Task<string> EditUserPassword(ChangePasswordDto request)
+        /*public async Task<string> EditUserPassword(ChangePasswordDto request)
         {
             if (request.CurrentPassword == request.NewPassword)
             {
@@ -93,21 +100,21 @@ namespace NFT.Client.Services.UserServices
 
             // _snackbar.Add("There was an error: Old password does not match", Severity.Error);
             return string.Empty;
-        }
-
-        public async Task<GetUserDto> GetMyProfileDetails(Guid id)
-        {
-            var result = await _httpClient.GetAsync($"api/user/myDetails/{id}");
-
-            return await result.Content.ReadFromJsonAsync<GetUserDto>();
-        }
-
-        public async Task<Unit> EditMyDetails(GetUserDto user)
-        {
-            var result = await _httpClient.PutAsJsonAsync($"api/user/editMyDetails", user);
-            // if (!await _snackbarNotification.IsSuccessfull(result)) return default;
-
-            return await result.Content.ReadFromJsonAsync<Unit>();
         }*/
+
+        /* public async Task<GetUserDto> GetMyProfileDetails(Guid id)
+         {
+             var result = await _httpClient.GetAsync($"api/user/myDetails/{id}");
+
+             return await result.Content.ReadFromJsonAsync<GetUserDto>();
+         }*/
+
+        /* public async Task<Unit> EditMyDetails(GetUserDto user)
+         {
+             var result = await _httpClient.PutAsJsonAsync($"api/user/editMyDetails", user);
+             // if (!await _snackbarNotification.IsSuccessfull(result)) return default;
+
+             return await result.Content.ReadFromJsonAsync<Unit>();
+         }*/
     }
 }

@@ -5,6 +5,8 @@ using NFT.Infrastructure;
 using System.Reflection;
 using MediatR;
 using NFT.UseCases.Users.Commands;
+using NFT.Shared.DataTransferObjects.Pagination;
+using NFT.UseCases.Services.Pagination;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +16,8 @@ builder.Services.AddRazorPages();
 
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<CreateUserCommand>());
+builder.Services.AddSingleton<IPaginationService, PaginationService>();
+
 
 // Configure API versioning
 builder.Services.AddApiVersioning(options =>
