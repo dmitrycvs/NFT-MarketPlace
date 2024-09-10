@@ -30,9 +30,9 @@ namespace NFT.UseCases.Roles.Queries
         {
             var query = request.PaginationParameter;
 
-            var footballFields = _appDbContext.Roles.AsQueryable();
+            var roles = _appDbContext.Roles.AsQueryable();
 
-            return await _paginationService.PaginateAsync(footballFields, query, RoleMapping.ToRoleDto);
+            return await _paginationService.PaginateAsync(roles, query, RoleMapping.ToRoleDto);
          
         }
     }

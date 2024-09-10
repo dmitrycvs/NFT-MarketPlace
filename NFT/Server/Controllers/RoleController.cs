@@ -1,16 +1,14 @@
 using MediatR;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NFT.Shared.DataTransferObjects.Pagination;
 using NFT.Shared.DataTransferObjects.Roles;
 using NFT.UseCases.Roles.Commands;
 using NFT.UseCases.Roles.Queries;
-using NFT.UseCases.Users.Queries;
 
 namespace NFT.Server.Controllers;
 
 //[Authorize]
-[Microsoft.AspNetCore.Components.Route("api/[controller]")]
+[Route("api/[controller]")]
 [ApiController]
 public class RoleController : ControllerBase
 {
