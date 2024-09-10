@@ -1,8 +1,11 @@
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using NFT.Shared.DataTransferObjects.Pagination;
 using NFT.Shared.DataTransferObjects.Roles;
 using NFT.UseCases.Roles.Commands;
 using NFT.UseCases.Roles.Queries;
+using NFT.UseCases.Users.Queries;
 
 namespace NFT.Server.Controllers;
 
@@ -41,5 +44,17 @@ public class RoleController : ControllerBase
     {
         return await _mediator.Send(new GetRoleByIdQuery(id));
     }
+    
+    [HttpGet("list")]
+    public async Task<List<RoleDto>> GetNotPaginatedRoles()
+    {
+        return await _mediator.Send(new GetNotPaginatedRolesListQuery());
+    }
 
+    [HttpPost("all")]
+    public async Task<PaginationResult<RoleDto>> GetRoles(PaginationParameter parameter)
+    {
+        var response = new GetRoleListQuery(parameter);
+        return await _mediator.Send(response);
+    }
 }
