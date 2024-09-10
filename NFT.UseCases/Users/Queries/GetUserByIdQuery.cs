@@ -2,10 +2,10 @@
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using NFT.Shared.DataTransferObjects.Users;
 using NFT.Infrastructure;
+using NFT.Shared.DataTransferObjects.Users;
 
-namespace SFRAdmin.UseCases.Users.Queries
+namespace NFT.UseCases.Users.Queries
 {
     public class GetUserByIdQuery : IRequest<UserDto>
     {
