@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Components.Web;
 using NFT.Client;
-using NFT.Client.Services.RoleServices;
 using NFT.Client.Services.UserServices;
 
 
@@ -13,7 +12,6 @@ builder.Services.AddHttpClient("NFT.ServerAPI", client => client.BaseAddress = n
 // Supply HttpClient instances that include access tokens when making requests to the server project
 builder.Services.AddScoped(sp => sp.GetRequiredService<IHttpClientFactory>().CreateClient("NFT.ServerAPI"));
 builder.Services.AddScoped<IUserService, UserService>();
-builder.Services.AddScoped<IRoleService, RoleService>();
 
 
 

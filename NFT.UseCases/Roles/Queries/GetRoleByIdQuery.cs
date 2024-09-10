@@ -30,7 +30,7 @@ public class GetRoleByIdQueryHandler : IRequestHandler<GetRoleByIdQuery, RoleDto
     {
         return await _appDbContext.Roles
             .Where(r => r.Id == request.Id)
-            .Select(role => new RoleDto {Id = role.Id, RoleName = role.RoleName})
+            .Select(role => new RoleDto {Id = role.Id, Name = role.Name})
             .FirstOrDefaultAsync(cancellationToken);
     }
 }

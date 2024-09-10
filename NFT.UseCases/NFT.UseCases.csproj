@@ -19,8 +19,4 @@
     <ProjectReference Include="..\NFT\Shared\NFT.Shared.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Role\" />
-  </ItemGroup>
-
 </Project>

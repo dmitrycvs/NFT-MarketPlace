@@ -13,7 +13,7 @@ public class RoleMapping
             return role => new RoleDto
             {
                 Id = role.Id,
-                RoleName = role.RoleName
+                Name = role.Name
             };
         }
     }

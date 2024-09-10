@@ -8,11 +8,11 @@ namespace NFT.UseCases.Roles.Commands;
 
 public class CreateRoleCommand : IRequest<Guid>
 {
-    public string RoleName { get; set; }
+    public string Name { get; set; }
 
     public CreateRoleCommand(RoleDto roleDto)
     {
-        RoleName = roleDto.RoleName;
+        Name = roleDto.Name;
     }
 }
 
@@ -30,7 +30,7 @@ public class CreateRoleCommandHandler : IRequestHandler<CreateRoleCommand, Guid>
         var roleToAdd = new Role
         {
             Id = Guid.NewGuid(),
-            RoleName = request.RoleName
+            Name = request.Name
         };
         
         _appDbContext.Roles.Add(roleToAdd);
@@ -44,6 +44,6 @@ public class CreateRoleCommandValidator : AbstractValidator<CreateRoleCommand>
 {
     public CreateRoleCommandValidator()
     {
-        RuleFor(x => x.RoleName).NotEmpty().WithMessage("Role cannot be empty");
+        RuleFor(x => x.Name).NotEmpty().WithMessage("Role cannot be empty");
     }
 }

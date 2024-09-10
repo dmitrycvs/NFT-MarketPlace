@@ -10,12 +10,12 @@ namespace NFT.UseCases.Roles.Commands;
 public class EditRoleCommand : IRequest<Unit>
 {
     public Guid Id { get; set; }
-    public string RoleName { get; set; }
+    public string Name { get; set; }
 
     public EditRoleCommand(RoleDto roleDto)
     {
         Id = roleDto.Id;
-        RoleName = roleDto.RoleName;
+        Name = roleDto.Name;
     }
 }
 
@@ -39,9 +39,9 @@ public class EditRoleCommandHandler : IRequestHandler<EditRoleCommand, Unit>
             throw new InvalidOperationException("Role not found");
         }
 
-        if (!string.IsNullOrEmpty(request.RoleName))
+        if (!string.IsNullOrEmpty(request.Name))
         {
-            roleToEdit.RoleName = request.RoleName;
+            roleToEdit.Name = request.Name;
         }
         
         await _appDbContext.SaveChangesAsync(cancellationToken);
@@ -56,7 +56,7 @@ public class EditRoleCommandValidator : AbstractValidator<EditRoleCommand>
     {
         RuleFor(r => r.Id).NotEmpty().WithMessage("Role ID must not be empty");
         
-        RuleFor(r => r.RoleName).NotEmpty().WithMessage("Role Name must not be empty");
+        RuleFor(r => r.Name).NotEmpty().WithMessage("Role Name must not be empty");
 
         RuleFor(r => r).Custom((command, context) =>
         {
