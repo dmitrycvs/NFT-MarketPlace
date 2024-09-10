@@ -5,8 +5,6 @@ using NFT.Shared.DataTransferObjects.Pagination;
 using NFT.Shared.DataTransferObjects.Users;
 using NFT.UseCases.Users.Commands;
 using NFT.UseCases.Users.Queries;
-using SFRAdmin.UseCases.Users.Queries;
-
 
 
 namespace NFT.Server.Controllers
@@ -53,20 +51,20 @@ namespace NFT.Server.Controllers
         }
 
 
-        [Authorize(Policy = "ViewUsers")]
-        [HttpGet("list")]
-        public async Task<List<UserDto>> GetNotPaginatedUsers()
-        {
-            return await _mediator.Send(new GetNotPaginatedUsersListQuery());
-        }
-
         // [Authorize(Policy = "ViewUsers")]
-        [HttpPost("all")]
-        public async Task<PaginationResult<UserDto>> GetUsers([FromBody] UserListQueryDto queryModel)
-        {
-            var response = new GetUserListQuery(queryModel);
-            return await _mediator.Send(response);
-        }
+        // [HttpGet("list")]
+        // public async Task<List<UserDto>> GetNotPaginatedUsers()
+        // {
+        //     return await _mediator.Send(new GetNotPaginatedUsersListQuery());
+        // }
+        //
+        // // [Authorize(Policy = "ViewUsers")]
+        // [HttpPost("all")]
+        // public async Task<PaginationResult<UserDto>> GetUsers([FromBody] UserListQueryDto queryModel)
+        // {
+        //     var response = new GetUserListQuery(queryModel);
+        //     return await _mediator.Send(response);
+        // }
 
         /*
 
