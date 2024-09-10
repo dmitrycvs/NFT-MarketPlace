@@ -1,6 +1,5 @@
 ﻿using NFT.Core.Entities;
 using NFT.Shared.DataTransferObjects.Users;
-using System;
 using System.Linq.Expressions;
 
 namespace NFT.UseCases.Users
