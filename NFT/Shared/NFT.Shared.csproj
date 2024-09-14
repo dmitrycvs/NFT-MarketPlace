@@ -9,4 +9,8 @@
   <ItemGroup>
     <SupportedPlatform Include="browser" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\NFT.Core\NFT.Core.csproj" />
+  </ItemGroup>
 </Project>
