@@ -53,7 +53,6 @@ namespace NFT.Server.Controllers
         }
 
 
-        [Authorize(Policy = "ViewUsers")]
         [HttpGet("list")]
         public async Task<List<UserDto>> GetNotPaginatedUsers()
         {

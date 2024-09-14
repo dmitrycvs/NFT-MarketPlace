@@ -28,7 +28,6 @@ public class GetNotPaginatedInventoriesQueryHandler : IRequestHandler<GetNotPagi
         {
             Id = inventory.Id,
             UserId = inventory.UserId,
-            User = inventory.User
         }).ToListAsync(cancellationToken);
     }
 }

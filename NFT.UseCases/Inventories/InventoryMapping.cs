@@ -14,7 +14,6 @@ public class InventoryMapping
             {
                 Id = inventory.Id,
                 UserId = inventory.UserId,
-                User = inventory.User,
             };
         }
     }

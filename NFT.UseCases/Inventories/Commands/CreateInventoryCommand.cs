@@ -9,12 +9,10 @@ namespace NFT.UseCases.Inventories.Commands;
 public class CreateInventoryCommand : IRequest<Guid>
 {
     public Guid UserId { get; set; }
-    public User User { get; set; }
 
     public CreateInventoryCommand(InventoryDto inventoryDto)
     {
         UserId = inventoryDto.UserId;
-        User = inventoryDto.User;
     }
 }
 
@@ -33,7 +31,6 @@ public class CreateInventoryCommandHandler : IRequestHandler<CreateInventoryComm
         {
             Id = Guid.NewGuid(),
             UserId = request.UserId,
-            User = request.User
         };
         _appDbContext.Inventories.Add(inventoryToAdd);
         await _appDbContext.SaveChangesAsync(cancellationToken);
@@ -47,6 +44,5 @@ public class CreateInventoryCommandValidator : AbstractValidator<CreateInventory
     public CreateInventoryCommandValidator()
     {
         RuleFor(i => i.UserId).NotEmpty().WithMessage("UserId cannot be empty");
-        RuleFor(i => i.User).NotEmpty().WithMessage("User cannot be empty");
     }
 }
