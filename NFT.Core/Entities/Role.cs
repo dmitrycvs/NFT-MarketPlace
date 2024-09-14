@@ -1,5 +1,3 @@
-using System.ComponentModel.DataAnnotations;
-
 namespace NFT.Core.Entities;
 
 public class Role

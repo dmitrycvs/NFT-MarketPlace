@@ -30,7 +30,7 @@ public class GetInventoryByIdQueryHandler : IRequestHandler<GetInventoryByIdQuer
     {
         return await _appDbContext.Inventories
             .Where(i => i.Id == request.Id)
-            .Select(inventory => new InventoryDto {Id = inventory.Id, UserId = inventory.UserId, User = inventory.User})
+            .Select(inventory => new InventoryDto {Id = inventory.Id, UserId = inventory.UserId})
             .FirstOrDefaultAsync(cancellationToken);
     }
 }
