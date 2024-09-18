@@ -13,6 +13,7 @@ namespace NFT.Infrastructure
         public DbSet<User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<Inventory> Inventories { get; set; }
+        public DbSet<Nft> Nfts { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
