@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Components.Web;
 using NFT.Client;
 using NFT.Client.Services.InventoryServices;
+using NFT.Client.Services.NftServices;
 using NFT.Client.Services.RoleServices;
 using NFT.Client.Services.UserServices;
 
@@ -16,6 +17,7 @@ builder.Services.AddScoped(sp => sp.GetRequiredService<IHttpClientFactory>().Cre
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IRoleService, RoleService>();
 builder.Services.AddScoped<IInventoryService, InventoryService>();
+builder.Services.AddScoped<INftService, NftService>();
 
 
 

@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NFT.Infrastructure;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace NFT.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240918070832_AddNft")]
+    partial class AddNft
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -38,7 +41,7 @@ namespace NFT.Infrastructure.Migrations
                     b.ToTable("Inventories");
                 });
 
-            modelBuilder.Entity("NFT.Core.Entities.NftItem", b =>
+            modelBuilder.Entity("NFT.Core.Entities.Nft", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -48,11 +51,9 @@ namespace NFT.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<bool>("IsListed")
-                        .HasColumnType("boolean");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("numeric");
+                    b.Property<string>("Price")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uuid");
@@ -61,7 +62,7 @@ namespace NFT.Infrastructure.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("NftItems");
+                    b.ToTable("Nfts");
                 });
 
             modelBuilder.Entity("NFT.Core.Entities.Role", b =>
@@ -110,7 +111,7 @@ namespace NFT.Infrastructure.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("NFT.Core.Entities.NftItem", b =>
+            modelBuilder.Entity("NFT.Core.Entities.Nft", b =>
                 {
                     b.HasOne("NFT.Core.Entities.User", "User")
                         .WithMany()
