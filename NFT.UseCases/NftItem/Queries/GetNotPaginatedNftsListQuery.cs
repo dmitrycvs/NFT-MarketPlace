@@ -5,14 +5,14 @@ using NFT.Shared.DataTransferObjects.NFT;
 
 namespace NFT.UseCases.Nft.Queries;
 
-public class GetNotPaginatedNftsListQuery : IRequest<List<NftDto>>
+public class GetNotPaginatedNftsListQuery : IRequest<List<NftItemDto>>
 {
     public GetNotPaginatedNftsListQuery()
     {
     }
 }
 
-public class GetNotPaginatedNftsQueryHandler : IRequestHandler<GetNotPaginatedNftsListQuery, List<NftDto>>
+public class GetNotPaginatedNftsQueryHandler : IRequestHandler<GetNotPaginatedNftsListQuery, List<NftItemDto>>
 {
     private readonly AppDbContext _appDbContext;
 
@@ -21,15 +21,16 @@ public class GetNotPaginatedNftsQueryHandler : IRequestHandler<GetNotPaginatedNf
         _appDbContext = appDbContext;
     }
 
-    public async Task<List<NftDto>> Handle(GetNotPaginatedNftsListQuery request,
+    public async Task<List<NftItemDto>> Handle(GetNotPaginatedNftsListQuery request,
         CancellationToken cancellationToken)
     {
-        return await _appDbContext.Nfts.Select(Nft => new NftDto
+        return await _appDbContext.NftItems.Select(Nft => new NftItemDto
         {
             Id = Nft.Id,
             UserId = Nft.UserId,
             Hash = Nft.Hash,
-            Price = Nft.Price
+            Price = Nft.Price,
+            IsListed = Nft.IsListed
         }).ToListAsync(cancellationToken);
     }
 }

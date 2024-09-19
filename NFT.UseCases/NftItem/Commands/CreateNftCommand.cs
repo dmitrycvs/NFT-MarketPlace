@@ -10,14 +10,15 @@ public class CreateNftCommand : IRequest<Guid>
 {
     public Guid UserId { get; set; }
     public string Hash { get; set; }
-    public string Price { get; set; }
+    public decimal Price { get; set; }
+    public bool IsListed { get; set; } = false;
 
-    public CreateNftCommand(NftDto nftDto)
+    public CreateNftCommand(NftItemDto nftItemDto)
     {
-        UserId = nftDto.UserId;
-        Hash = nftDto.Hash;
-        Price = nftDto.Price;
-        
+        UserId = nftItemDto.UserId;
+        Hash = nftItemDto.Hash;
+        Price = nftItemDto.Price;
+        IsListed = nftItemDto.IsListed;
     }
 }
 
@@ -32,14 +33,15 @@ public class CreateNftCommandHandler : IRequestHandler<CreateNftCommand, Guid>
 
     public async Task<Guid> Handle(CreateNftCommand request, CancellationToken cancellationToken)
     {
-        var nftToAdd = new Core.Entities.Nft
+        var nftToAdd = new Core.Entities.NftItem
         {
             Id = Guid.NewGuid(),
             UserId = request.UserId,
             Hash = request.Hash,
-            Price = request.Price
+            Price = request.Price,
+            IsListed = request.IsListed
         };
-        _appDbContext.Nfts.Add(nftToAdd);
+        _appDbContext.NftItems.Add(nftToAdd);
         await _appDbContext.SaveChangesAsync(cancellationToken);
 
         return nftToAdd.Id;

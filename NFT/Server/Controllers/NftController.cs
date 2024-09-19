@@ -4,6 +4,7 @@ using NFT.Shared.DataTransferObjects.NFT;
 using NFT.Shared.DataTransferObjects.Pagination;
 using NFT.UseCases.Nft.Commands;
 using NFT.UseCases.Nft.Queries;
+using NFT.UseCases.NftItem.Commands;
 
 namespace NFT.Server.Controllers;
 
@@ -19,13 +20,13 @@ public class NftController : ControllerBase
     }
 
     [HttpPost("create")]
-    public async Task<Guid> CreateNft(NftDto request)
+    public async Task<Guid> CreateNft(NftItemDto request)
     {
         return await _mediator.Send(new CreateNftCommand(request));
     }
 
     [HttpPut("edit")]
-    public async Task<Unit> EditNft([FromBody] NftDto request)
+    public async Task<Unit> EditNft([FromBody] NftItemDto request)
     {
         return await _mediator.Send(new EditNftCommand(request));
     }
@@ -37,19 +38,19 @@ public class NftController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public async Task<NftDto> GetNftById([FromRoute] Guid id)
+    public async Task<NftItemDto> GetNftById([FromRoute] Guid id)
     {
         return await _mediator.Send(new GetNftByIdQuery(id));
     }
     
     [HttpGet("list")]
-    public async Task<List<NftDto>> GetNotPaginatedNfts()
+    public async Task<List<NftItemDto>> GetNotPaginatedNfts()
     {
         return await _mediator.Send(new GetNotPaginatedNftsListQuery());
     }
 
     [HttpPost("all")]
-    public async Task<PaginationResult<NftDto>> GetNfts(PaginationParameter parameter)
+    public async Task<PaginationResult<NftItemDto>> GetNfts(PaginationParameter parameter)
     {
         var response = new GetNftsListQuery(parameter);
         return await _mediator.Send(response);

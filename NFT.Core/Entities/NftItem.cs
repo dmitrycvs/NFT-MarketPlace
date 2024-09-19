@@ -1,14 +1,15 @@
 namespace NFT.Core.Entities;
 
-public class Nft
+public class NftItem
 {
-    public Nft()
+    public NftItem()
     {
         User = new User();
     }
     public Guid Id { get; set; }
     public string Hash { get; set; }
     public Guid UserId { get; set; }
-    public string Price { get; set; }
+    public decimal Price { get; set; }
     public User User { get; set; }
+    public bool IsListed { get; set; } = false;
 }

@@ -5,21 +5,23 @@ using Microsoft.Extensions.DependencyInjection;
 using NFT.Infrastructure;
 using NFT.Shared.DataTransferObjects.NFT;
 
-namespace NFT.UseCases.Nft.Commands;
+namespace NFT.UseCases.NftItem.Commands;
 
 public class EditNftCommand : IRequest<Unit>
     {
         public Guid Id { get; set; }
         public string Hash { get; set; }
         public Guid UserId { get; set; }
-        public string Price { get; set; }
+        public decimal Price { get; set; }
+        public bool IsListed { get; set; } = false;
 
-        public EditNftCommand(NftDto nftDto)
+        public EditNftCommand(NftItemDto nftItemDto)
         {
-            Id = nftDto.Id;
-            Hash = nftDto.Hash;
-            UserId = nftDto.UserId;
-            Price = nftDto.Price;
+            Id = nftItemDto.Id;
+            Hash = nftItemDto.Hash;
+            UserId = nftItemDto.UserId;
+            Price = nftItemDto.Price;
+            IsListed = nftItemDto.IsListed;
         }
     }
 
@@ -34,7 +36,7 @@ public class EditNftCommand : IRequest<Unit>
 
         public async Task<Unit> Handle(EditNftCommand request, CancellationToken cancellationToken)
         {
-            var nftToEdit = await _appDbContext.Nfts
+            var nftToEdit = await _appDbContext.NftItems
                 .Where(n => n.Id == request.Id)
                 .FirstOrDefaultAsync(cancellationToken);
 
@@ -53,10 +55,12 @@ public class EditNftCommand : IRequest<Unit>
                 nftToEdit.UserId = request.UserId;
             }
             
-            if (!string.IsNullOrEmpty(request.Price))
+            if (request.Price != 0)
             {
                 nftToEdit.Price = request.Price;
             }
+
+            nftToEdit.IsListed = request.IsListed;
 
             await _appDbContext.SaveChangesAsync(cancellationToken);
 
@@ -80,7 +84,7 @@ public class EditNftCommand : IRequest<Unit>
                 using var scope = services.CreateScope();
                 var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
 
-                var nftExists = dbContext.Nfts.Any(n => n.Id == command.Id);
+                var nftExists = dbContext.NftItems.Any(n => n.Id == command.Id);
                 if (!nftExists)
                 {
                     context.AddFailure("The nft does not exist.");

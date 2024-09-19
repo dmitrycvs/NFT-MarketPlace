@@ -6,10 +6,10 @@ namespace NFT.Client.Services.NftServices;
 
 public interface INftService
 {
-    Task<Guid> CreateNft(NftDto request);
+    Task<Guid> CreateNft(NftItemDto request);
     Task<Unit> DeleteNft(Guid id);
-    Task<List<NftDto>> GetNotPaginatedNfts();
-    Task<NftDto> GetNftById(Guid id);
-    Task<PaginationResult<NftDto>> GetNfts(NftDto queryModel);
-    Task<Unit> EditNft(NftDto request);
+    Task<List<NftItemDto>> GetNotPaginatedNfts();
+    Task<NftItemDto> GetNftById(Guid id);
+    Task<PaginationResult<NftItemDto>> GetNfts(NftItemDto queryModel);
+    Task<Unit> EditNft(NftItemDto request);
 }

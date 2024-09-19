@@ -5,7 +5,7 @@ using NFT.Shared.DataTransferObjects.Pagination;
 
 namespace NFT.UseCases.Nft.Queries;
 
-public class GetNftsListQuery : IRequest<PaginationResult<NftDto>>
+public class GetNftsListQuery : IRequest<PaginationResult<NftItemDto>>
 {
     public GetNftsListQuery(PaginationParameter paginationParameter)
     {
@@ -14,7 +14,7 @@ public class GetNftsListQuery : IRequest<PaginationResult<NftDto>>
     public PaginationParameter PaginationParameter { get; set; }
 }
 
-public class GetNftListQueryHandler : IRequestHandler<GetNftsListQuery, PaginationResult<NftDto>>
+public class GetNftListQueryHandler : IRequestHandler<GetNftsListQuery, PaginationResult<NftItemDto>>
 {
     private readonly IPaginationService _paginationService;
 
@@ -25,11 +25,11 @@ public class GetNftListQueryHandler : IRequestHandler<GetNftsListQuery, Paginati
         _paginationService = paginationService;
         _appDbContext = appDbContext;
     }
-    public async Task<PaginationResult<NftDto>> Handle(GetNftsListQuery request, CancellationToken cancellationToken)
+    public async Task<PaginationResult<NftItemDto>> Handle(GetNftsListQuery request, CancellationToken cancellationToken)
     {
         var query = request.PaginationParameter;
 
-        var nfts = _appDbContext.Nfts.AsQueryable();
+        var nfts = _appDbContext.NftItems.AsQueryable();
 
         return await _paginationService.PaginateAsync(nfts, query, NftMapping.ToNftDto);
          

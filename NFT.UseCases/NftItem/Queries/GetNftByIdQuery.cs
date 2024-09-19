@@ -7,7 +7,7 @@ using NFT.Shared.DataTransferObjects.NFT;
 
 namespace NFT.UseCases.Nft.Queries;
 
-public class GetNftByIdQuery : IRequest<NftDto>
+public class GetNftByIdQuery : IRequest<NftItemDto>
 {
     public Guid Id { get; set; }
 
@@ -17,7 +17,7 @@ public class GetNftByIdQuery : IRequest<NftDto>
     }
 }
 
-public class GetNftByIdQueryHandler : IRequestHandler<GetNftByIdQuery, NftDto>
+public class GetNftByIdQueryHandler : IRequestHandler<GetNftByIdQuery, NftItemDto>
 {
     private readonly AppDbContext _appDbContext;
 
@@ -26,11 +26,11 @@ public class GetNftByIdQueryHandler : IRequestHandler<GetNftByIdQuery, NftDto>
         _appDbContext = appDbContext;
     }
 
-    public async Task<NftDto> Handle(GetNftByIdQuery request, CancellationToken cancellationToken)
+    public async Task<NftItemDto> Handle(GetNftByIdQuery request, CancellationToken cancellationToken)
     {
-        return await _appDbContext.Nfts
+        return await _appDbContext.NftItems
             .Where(n => n.Id == request.Id)
-            .Select(Nft => new NftDto {Id = Nft.Id, UserId = Nft.UserId, Hash = Nft.Hash, Price = Nft.Price})
+            .Select(Nft => new NftItemDto {Id = Nft.Id, UserId = Nft.UserId, Hash = Nft.Hash, Price = Nft.Price, IsListed = Nft.IsListed})
             .FirstOrDefaultAsync(cancellationToken);
     }
 }
@@ -46,7 +46,7 @@ public class GetNftByIdQueryValidator : AbstractValidator<GetNftByIdQuery>
             using var scope = services.CreateScope();
             var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
 
-            var NftExist = dbContext.Nfts.Any(n => n.Id == query.Id);
+            var NftExist = dbContext.NftItems.Any(n => n.Id == query.Id);
             if (!NftExist)
             {
                 context.AddFailure("Nft not found");
