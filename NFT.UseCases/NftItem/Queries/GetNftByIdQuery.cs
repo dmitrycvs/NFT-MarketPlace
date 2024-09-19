@@ -30,7 +30,13 @@ public class GetNftByIdQueryHandler : IRequestHandler<GetNftByIdQuery, NftItemDt
     {
         return await _appDbContext.NftItems
             .Where(n => n.Id == request.Id)
-            .Select(Nft => new NftItemDto {Id = Nft.Id, UserId = Nft.UserId, Hash = Nft.Hash, Price = Nft.Price, IsListed = Nft.IsListed})
+            .Select(Nft => new NftItemDto {Id = Nft.Id, 
+                UserId = Nft.UserId, 
+                Hash = Nft.Hash, 
+                Price = Nft.Price, 
+                IsListed = Nft.IsListed,
+                CollectionId = Nft.CollectionId
+            })
             .FirstOrDefaultAsync(cancellationToken);
     }
 }

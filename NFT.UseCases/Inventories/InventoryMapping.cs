@@ -14,6 +14,7 @@ public class InventoryMapping
             {
                 Id = inventory.Id,
                 UserId = inventory.UserId,
+                NftItemId = inventory.NftItemId,
             };
         }
     }

@@ -30,7 +30,8 @@ public class GetNotPaginatedNftsQueryHandler : IRequestHandler<GetNotPaginatedNf
             UserId = Nft.UserId,
             Hash = Nft.Hash,
             Price = Nft.Price,
-            IsListed = Nft.IsListed
+            IsListed = Nft.IsListed,
+            CollectionId = Nft.CollectionId,
         }).ToListAsync(cancellationToken);
     }
 }

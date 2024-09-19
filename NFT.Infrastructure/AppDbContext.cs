@@ -14,6 +14,9 @@ namespace NFT.Infrastructure
         public DbSet<Role> Roles { get; set; }
         public DbSet<Inventory> Inventories { get; set; }
         public DbSet<NftItem> NftItems { get; set; }
+        public DbSet<Collection> Collections { get; set; }
+        public DbSet<HistoryLog> HistoryLogs { get; set; }
+
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -25,7 +28,6 @@ namespace NFT.Infrastructure
             .HasMany(u => u.Inventories)
             .WithOne(i => i.User)
             .HasForeignKey(i => i.UserId);
-
         }
 
     }

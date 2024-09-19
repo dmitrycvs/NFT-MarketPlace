@@ -6,4 +6,5 @@ public class InventoryDto
 {
     public Guid Id { get; set; }
     public Guid UserId { get; set; }
+    public Guid NftItemId { get; set; }
 }
