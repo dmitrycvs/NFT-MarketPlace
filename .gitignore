@@ -1,1 +1,5 @@
-    
+.idea
+.venv
+*.zip
+spam.csv
+test.csv
