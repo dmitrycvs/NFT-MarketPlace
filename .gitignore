@@ -1,5 +1,6 @@
 .idea
 .venv
 *.zip
+__pycache__/
 spam.csv
 test.csv
