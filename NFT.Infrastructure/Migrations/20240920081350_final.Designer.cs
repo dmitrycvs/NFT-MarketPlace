@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace NFT.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240919100424_CreateHistoryLog_InventoryUIpdate")]
-    partial class CreateHistoryLog_InventoryUIpdate
+    [Migration("20240920081350_final")]
+    partial class final
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,6 +24,75 @@ namespace NFT.Infrastructure.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
+
+            modelBuilder.Entity("NFT.Core.Entities.Collection", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime>("DateTime")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<decimal>("FloorPrice")
+                        .HasColumnType("numeric");
+
+                    b.Property<decimal>("MarketCapital")
+                        .HasColumnType("numeric");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("NumberOfSale")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("SocialLink")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("Supply")
+                        .HasColumnType("integer");
+
+                    b.Property<decimal>("Volume")
+                        .HasColumnType("numeric");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Collections");
+                });
+
+            modelBuilder.Entity("NFT.Core.Entities.HistoryLog", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("BuyerId")
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime>("DateTime")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<decimal>("DealPrice")
+                        .HasColumnType("numeric");
+
+                    b.Property<Guid>("NftItemId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("SellerId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BuyerId");
+
+                    b.HasIndex("NftItemId");
+
+                    b.HasIndex("SellerId");
+
+                    b.ToTable("HistoryLogs");
+                });
 
             modelBuilder.Entity("NFT.Core.Entities.Inventory", b =>
                 {
@@ -52,12 +121,22 @@ namespace NFT.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
+                    b.Property<decimal?>("AvgDealPrice")
+                        .HasColumnType("numeric");
+
+                    b.Property<Guid>("CollectionId")
+                        .HasColumnType("uuid");
+
                     b.Property<string>("Hash")
                         .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<bool>("IsListed")
                         .HasColumnType("boolean");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("numeric");
@@ -66,6 +145,8 @@ namespace NFT.Infrastructure.Migrations
                         .HasColumnType("uuid");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CollectionId");
 
                     b.HasIndex("UserId");
 
@@ -107,6 +188,33 @@ namespace NFT.Infrastructure.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("NFT.Core.Entities.HistoryLog", b =>
+                {
+                    b.HasOne("NFT.Core.Entities.User", "Buyer")
+                        .WithMany()
+                        .HasForeignKey("BuyerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("NFT.Core.Entities.NftItem", "Nft")
+                        .WithMany()
+                        .HasForeignKey("NftItemId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("NFT.Core.Entities.User", "Seller")
+                        .WithMany()
+                        .HasForeignKey("SellerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Buyer");
+
+                    b.Navigation("Nft");
+
+                    b.Navigation("Seller");
+                });
+
             modelBuilder.Entity("NFT.Core.Entities.Inventory", b =>
                 {
                     b.HasOne("NFT.Core.Entities.NftItem", "Nft")
@@ -128,11 +236,19 @@ namespace NFT.Infrastructure.Migrations
 
             modelBuilder.Entity("NFT.Core.Entities.NftItem", b =>
                 {
+                    b.HasOne("NFT.Core.Entities.Collection", "Collection")
+                        .WithMany("NftItems")
+                        .HasForeignKey("CollectionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("NFT.Core.Entities.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Collection");
 
                     b.Navigation("User");
                 });
@@ -144,6 +260,11 @@ namespace NFT.Infrastructure.Migrations
                         .HasForeignKey("UserRoleId");
 
                     b.Navigation("UserRole");
+                });
+
+            modelBuilder.Entity("NFT.Core.Entities.Collection", b =>
+                {
+                    b.Navigation("NftItems");
                 });
 
             modelBuilder.Entity("NFT.Core.Entities.User", b =>

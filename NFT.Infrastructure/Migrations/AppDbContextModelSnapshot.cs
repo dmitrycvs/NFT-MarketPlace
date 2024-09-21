@@ -80,12 +80,6 @@ namespace NFT.Infrastructure.Migrations
                     b.Property<Guid>("SellerId")
                         .HasColumnType("uuid");
 
-                    b.Property<Guid?>("UserBuyerId")
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid?>("UserSellerId")
-                        .HasColumnType("uuid");
-
                     b.HasKey("Id");
 
                     b.HasIndex("BuyerId");
@@ -136,6 +130,10 @@ namespace NFT.Infrastructure.Migrations
 
                     b.Property<bool>("IsListed")
                         .HasColumnType("boolean");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("numeric");
