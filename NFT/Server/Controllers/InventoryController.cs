@@ -1,4 +1,4 @@
-using MediatR;
+/*using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using NFT.Shared.DataTransferObjects.Inventories;
 using NFT.Shared.DataTransferObjects.Pagination;
@@ -49,4 +49,6 @@ public class InventoryController : ControllerBase
         var response = new GetInventoryListQuery(parameter);
         return await _mediator.Send(response);
     }
-}
+}*/
+
+//Temporarly disabled commands and queries regarding Inventory

@@ -16,7 +16,8 @@ public class NftMapping
                 Hash = nft.Hash,
                 Price = nft.Price,
                 UserId = nft.UserId,
-                IsListed = nft.IsListed
+                IsListed = nft.IsListed,
+                CollectionId = nft.CollectionId
             };
         }
     }

@@ -9,12 +9,12 @@ namespace NFT.UseCases.Inventories.Commands;
 public class CreateInventoryCommand : IRequest<Guid>
 {
     public Guid UserId { get; set; }
-    public Guid NftItemId { get; set; }
+    //public Guid? NftItemId { get; set; }
 
     public CreateInventoryCommand(InventoryDto inventoryDto)
     {
         UserId = inventoryDto.UserId;
-        NftItemId = inventoryDto.NftItemId;
+        //NftItemId = inventoryDto.NftItemId;
     }
 }
 
@@ -33,7 +33,7 @@ public class CreateInventoryCommandHandler : IRequestHandler<CreateInventoryComm
         {
             Id = Guid.NewGuid(),
             UserId = request.UserId,
-            NftItemId = request.NftItemId,
+          //  NftItemId = request.NftItemId,
         };
         _appDbContext.Inventories.Add(inventoryToAdd);
         await _appDbContext.SaveChangesAsync(cancellationToken);
@@ -47,6 +47,5 @@ public class CreateInventoryCommandValidator : AbstractValidator<CreateInventory
     public CreateInventoryCommandValidator()
     {
         RuleFor(u => u.UserId).NotEmpty().WithMessage("UserId cannot be empty");
-        RuleFor(i => i.NftItemId).NotEmpty().WithMessage("NftItem cannot be empty");
     }
 }

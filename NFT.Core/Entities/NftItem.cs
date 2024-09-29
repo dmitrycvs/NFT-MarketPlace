@@ -17,4 +17,5 @@ public class NftItem
                                               //and make arithmetical avg price
     public Guid CollectionId { get; set; }
     public Collection Collection { get; set; }
+   
 }

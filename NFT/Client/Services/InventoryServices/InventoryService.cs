@@ -1,4 +1,4 @@
-using System.Net.Http.Json;
+/*using System.Net.Http.Json;
 using MediatR;
 using NFT.Shared.DataTransferObjects.Inventories;
 using NFT.Shared.DataTransferObjects.Pagination;
@@ -45,4 +45,5 @@ public class InventoryService : IInventoryService
         //if (!await _snackbarNotification.IsNotSuccessfull(result)) return default;
         return await result.Content.ReadFromJsonAsync<PaginationResult<InventoryDto>>();
     }
-}
+}*/
+//Temporarly disabled commands and queries regarding Inventory

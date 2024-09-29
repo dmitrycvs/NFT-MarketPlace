@@ -28,7 +28,7 @@ public class GetNotPaginatedInventoriesQueryHandler : IRequestHandler<GetNotPagi
         {
             Id = inventory.Id,
             UserId = inventory.UserId,
-            NftItemId = inventory.NftItemId,
+            //NftItemId = inventory.NftItemId, TO DO
         }).ToListAsync(cancellationToken);
     }
 }

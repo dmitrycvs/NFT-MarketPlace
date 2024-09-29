@@ -1,6 +1,8 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using NFT.Shared.DataTransferObjects.HistoryLogs;
 using NFT.Shared.DataTransferObjects.NFT;
+using NFT.Shared.DataTransferObjects.NftItem;
 using NFT.Shared.DataTransferObjects.Pagination;
 using NFT.UseCases.Nft.Commands;
 using NFT.UseCases.Nft.Queries;
@@ -55,4 +57,18 @@ public class NftController : ControllerBase
         var response = new GetNftsListQuery(parameter);
         return await _mediator.Send(response);
     }
+
+    [HttpPost("sell")]
+    public async Task<Guid> SellNft([FromBody] HistoryLogDto request)
+    {
+        var command = new SellNftToUserCommand
+        {
+            SellerId = request.SellerId,
+            BuyerId = request.BuyerId,
+            NftItemId = request.NftItemId,
+            DealPrice = request.DealPrice
+        };
+        return await _mediator.Send(command);
+    }
+
 }
