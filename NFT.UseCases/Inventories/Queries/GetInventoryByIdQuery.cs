@@ -31,7 +31,7 @@ public class GetInventoryByIdQueryHandler : IRequestHandler<GetInventoryByIdQuer
 #pragma warning disable CS8603 // Possible null reference return.
         return await _appDbContext.Inventories
             .Where(i => i.Id == request.Id)
-            .Select(inventory => new InventoryDto {Id = inventory.Id, UserId = inventory.UserId, NftItemId = inventory.NftItemId })
+            .Select(inventory => new InventoryDto {Id = inventory.Id, UserId = inventory.UserId }) //TO DO
             .FirstOrDefaultAsync(cancellationToken);
 #pragma warning restore CS8603 // Possible null reference return.
     }

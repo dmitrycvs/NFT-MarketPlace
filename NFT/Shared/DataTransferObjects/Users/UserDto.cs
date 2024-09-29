@@ -1,4 +1,5 @@
-﻿using NFT.Shared.DataTransferObjects.Inventories;
+﻿using NFT.Core.Entities;
+using NFT.Shared.DataTransferObjects.Inventories;
 
 namespace NFT.Shared.DataTransferObjects.Users
 {
@@ -6,7 +7,6 @@ namespace NFT.Shared.DataTransferObjects.Users
     {
         public Guid Id { get; set; }
         public string Login { get; set; } = string.Empty;
-        public List<InventoryDto> Inventories { get; set; } = new List<InventoryDto>();  
 
         //public bool IsAuthenticated { get; set; } //pentru viitor
 

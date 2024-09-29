@@ -23,11 +23,7 @@ namespace NFT.Infrastructure
         {
             base.OnModelCreating(modelBuilder);
 
-
-            modelBuilder.Entity<User>()
-            .HasMany(u => u.Inventories)
-            .WithOne(i => i.User)
-            .HasForeignKey(i => i.UserId);
+          
         }
 
     }

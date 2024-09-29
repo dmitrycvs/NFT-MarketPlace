@@ -1,6 +1,7 @@
 using System.Linq.Expressions;
 using NFT.Core.Entities;
 using NFT.Shared.DataTransferObjects.Inventories;
+using NFT.Shared.DataTransferObjects.NFT;
 
 namespace NFT.UseCases.Inventories;
 
@@ -14,7 +15,17 @@ public class InventoryMapping
             {
                 Id = inventory.Id,
                 UserId = inventory.UserId,
-                NftItemId = inventory.NftItemId,
+               /* NftItems = inventory.NftItems != null
+                        ? inventory.NftItems.Select(nftItem => new NftItemDto
+                        {
+                            Id = nftItem.Id,
+                            Name = nftItem.Name,
+                            Hash = nftItem.Hash,
+                            Price = nftItem.Price,
+                            IsListed = nftItem.IsListed,
+                            CollectionId = nftItem.CollectionId
+                        }).ToList()
+                        : new List<NftItemDto>() */
             };
         }
     }

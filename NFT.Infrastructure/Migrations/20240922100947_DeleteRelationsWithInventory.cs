@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace NFT.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class final : Migration
+    public partial class DeleteRelationsWithInventory : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -58,6 +58,24 @@ namespace NFT.Infrastructure.Migrations
                         column: x => x.UserRoleId,
                         principalTable: "Roles",
                         principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Inventories",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    UserId = table.Column<Guid>(type: "uuid", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Inventories", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Inventories_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -124,31 +142,6 @@ namespace NFT.Infrastructure.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "Inventories",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    UserId = table.Column<Guid>(type: "uuid", nullable: false),
-                    NftItemId = table.Column<Guid>(type: "uuid", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Inventories", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Inventories_NftItems_NftItemId",
-                        column: x => x.NftItemId,
-                        principalTable: "NftItems",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Inventories_Users_UserId",
-                        column: x => x.UserId,
-                        principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
             migrationBuilder.CreateIndex(
                 name: "IX_HistoryLogs_BuyerId",
                 table: "HistoryLogs",
@@ -163,11 +156,6 @@ namespace NFT.Infrastructure.Migrations
                 name: "IX_HistoryLogs_SellerId",
                 table: "HistoryLogs",
                 column: "SellerId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Inventories_NftItemId",
-                table: "Inventories",
-                column: "NftItemId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Inventories_UserId",

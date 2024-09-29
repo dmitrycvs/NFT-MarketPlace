@@ -1,6 +1,8 @@
 using System.Net.Http.Json;
 using MediatR;
+using NFT.Shared.DataTransferObjects.HistoryLogs;
 using NFT.Shared.DataTransferObjects.NFT;
+using NFT.Shared.DataTransferObjects.NftItem;
 using NFT.Shared.DataTransferObjects.Pagination;
 
 namespace NFT.Client.Services.NftServices;
@@ -52,5 +54,10 @@ public class NftService : INftService
         var result = await _httpClient.PutAsJsonAsync($"api/Nft/edit", request);
         //if (!await _snackbarNotification.IsSuccessfull(result)) return default;
         return await result.Content.ReadFromJsonAsync<Unit>();
+    }
+    public async Task<Guid> SellNft(HistoryLogDto request)
+    {
+        var result = await _httpClient.PostAsJsonAsync("api/Nft/sell", request);
+        return await result.Content.ReadFromJsonAsync<Guid>();
     }
 }

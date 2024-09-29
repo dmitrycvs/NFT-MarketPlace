@@ -1,4 +1,4 @@
-using MediatR;
+/*using MediatR;
 using NFT.Shared.DataTransferObjects.Inventories;
 using NFT.Shared.DataTransferObjects.Pagination;
 
@@ -11,4 +11,5 @@ public interface IInventoryService
     Task<List<InventoryDto>> GetNotPaginatedInventories();
     Task<InventoryDto> GetInventoryById(Guid id);
     Task<PaginationResult<InventoryDto>> GetInventories(InventoryDto queryModel);
-}
+}*/
+//Temporarly disabled commands and queries regarding Inventory

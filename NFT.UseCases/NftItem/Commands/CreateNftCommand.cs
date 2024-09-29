@@ -45,7 +45,7 @@ public class CreateNftCommandHandler : IRequestHandler<CreateNftCommand, Guid>
             Hash = request.Hash,
             Price = request.Price,
             IsListed = request.IsListed,
-            CollectionId = request.CollectionId
+            CollectionId = request.CollectionId,
         };
         _appDbContext.NftItems.Add(nftToAdd);
         await _appDbContext.SaveChangesAsync(cancellationToken);
@@ -61,7 +61,7 @@ public class CreateNftCommandValidator : AbstractValidator<CreateNftCommand>
         RuleFor(n => n.UserId).NotEmpty().WithMessage("UserId cannot be empty");
         RuleFor(n => n.Hash).NotEmpty().WithMessage("Hash cannot be empty");
         RuleFor(n => n.Price).NotEmpty().WithMessage("Price cannot be empty");
-        RuleFor(n => n.CollectionId).NotEmpty().WithMessage("CollectioniD cannot be empty");
+        RuleFor(n => n.CollectionId).NotEmpty().WithMessage("CollectionId cannot be empty");
 
     }
 }

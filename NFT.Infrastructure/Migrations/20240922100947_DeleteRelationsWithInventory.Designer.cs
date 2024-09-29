@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace NFT.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240920081350_final")]
-    partial class final
+    [Migration("20240922100947_DeleteRelationsWithInventory")]
+    partial class DeleteRelationsWithInventory
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -100,15 +100,10 @@ namespace NFT.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<Guid>("NftItemId")
-                        .HasColumnType("uuid");
-
                     b.Property<Guid>("UserId")
                         .HasColumnType("uuid");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("NftItemId");
 
                     b.HasIndex("UserId");
 
@@ -217,19 +212,11 @@ namespace NFT.Infrastructure.Migrations
 
             modelBuilder.Entity("NFT.Core.Entities.Inventory", b =>
                 {
-                    b.HasOne("NFT.Core.Entities.NftItem", "Nft")
-                        .WithMany()
-                        .HasForeignKey("NftItemId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("NFT.Core.Entities.User", "User")
-                        .WithMany("Inventories")
+                        .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Nft");
 
                     b.Navigation("User");
                 });
@@ -265,11 +252,6 @@ namespace NFT.Infrastructure.Migrations
             modelBuilder.Entity("NFT.Core.Entities.Collection", b =>
                 {
                     b.Navigation("NftItems");
-                });
-
-            modelBuilder.Entity("NFT.Core.Entities.User", b =>
-                {
-                    b.Navigation("Inventories");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,9 +1,9 @@
 using System.Diagnostics.Metrics;
+using MediatR;
 using Microsoft.AspNetCore.Components.Web;
 using NFT.Client;
 using NFT.Client.Services.CollectionServices;
 using NFT.Client.Services.HistoryLogServices;
-using NFT.Client.Services.InventoryServices;
 using NFT.Client.Services.NftServices;
 using NFT.Client.Services.RoleServices;
 using NFT.Client.Services.UserServices;
@@ -19,7 +19,7 @@ builder.Services.AddHttpClient("NFT.ServerAPI", client => client.BaseAddress = n
 builder.Services.AddScoped(sp => sp.GetRequiredService<IHttpClientFactory>().CreateClient("NFT.ServerAPI"));
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IRoleService, RoleService>();
-builder.Services.AddScoped<IInventoryService, InventoryService>();
+//builder.Services.AddScoped<IInventoryService, InventoryService>();
 builder.Services.AddScoped<INftService, NftService>();
 builder.Services.AddScoped<ICollectionService, CollectionService>();
 builder.Services.AddScoped<IHistoryLogService, HistoryLogService>();
