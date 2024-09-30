@@ -1,6 +1,6 @@
 using MediatR;
 using NFT.Infrastructure;
-using NFT.Shared.DataTransferObjects.NFT;
+using NFT.Shared.DataTransferObjects.NftItem;
 using NFT.Shared.DataTransferObjects.Pagination;
 
 namespace NFT.UseCases.Nft.Queries;

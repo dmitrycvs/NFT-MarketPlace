@@ -1,9 +1,9 @@
 using FluentValidation;
 using MediatR;
 using NFT.Infrastructure;
-using NFT.Shared.DataTransferObjects.NFT;
+using NFT.Shared.DataTransferObjects.NftItem;
 
-namespace NFT.UseCases.Nft.Commands;
+namespace NFT.UseCases.NftItem.Commands;
 
 public class CreateNftCommand : IRequest<Guid>
 {
