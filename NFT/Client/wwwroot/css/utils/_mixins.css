@@ -1,0 +1,78 @@
+:root {
+    --text-color: var(--text); /* Assuming you've defined --text in your variables.css */
+    --font-space-mono: 'Space Mono', monospace;
+    --font-work-sans: 'Work Sans', sans-serif;
+    --call-to-action-color: var(--call-to-action); /* Assuming you've defined --call-to-action in your variables.css */
+}
+
+.header-space {
+    color: var(--text-color);
+    font-family: var(--font-space-mono);
+    font-style: normal;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.text-space {
+    color: var(--text-color);
+    font-family: var(--font-space-mono);
+    font-style: normal;
+    font-weight: 400;
+}
+
+.header-sans {
+    color: var(--text-color);
+    font-family: var(--font-work-sans);
+    font-style: normal;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.text-sans {
+    color: var(--text-color);
+    font-family: var(--font-work-sans);
+    font-style: normal;
+    font-weight: 400;
+}
+
+.primary-btn-colored, .secondary-btn-colored, .generic-btn-colored,
+.primary-btn-transparent, .secondary-btn-transparent, .generic-btn-transparent {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.primary-btn-colored, .secondary-btn-colored, .generic-btn-colored {
+    background: var(--call-to-action-color);
+}
+
+.primary-btn-transparent, .secondary-btn-transparent, .generic-btn-transparent {
+    background: transparent;
+    border: 2px solid var(--call-to-action-color);
+}
+
+.primary-btn-colored, .primary-btn-transparent {
+    height: 72px;
+    padding: 0 50px;
+}
+
+.secondary-btn-colored, .secondary-btn-transparent {
+    height: 60px;
+    padding: 0 50px;
+}
+
+.generic-btn-colored, .generic-btn-transparent {
+    height: 46px;
+    padding: 0 50px;
+}
+
+.primary-btn-colored:hover, .secondary-btn-colored:hover, .generic-btn-colored:hover,
+.primary-btn-transparent:hover, .secondary-btn-transparent:hover, .generic-btn-transparent:hover {
+    transform: scale(0.9);
+    cursor: pointer;
+}

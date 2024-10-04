@@ -1,0 +1,15 @@
+:root {
+    --background: #2b2b2b;
+    --background-secondary: #3b3b3b;
+    --caption-label-text: #858584;
+    --text: #fff;
+    --green: #00ac4f;
+
+    --call-to-action: #a259ff;
+
+    --gradient-2: linear-gradient(128deg, #a259ff 49.75%, #377df7 136.56%);
+    --gradient-1: linear-gradient(101deg, #a259ff 13.57%, #ff6250 97.65%);
+
+    --tablet-width: 1067px;
+    --mobile-width: 707px;
+}

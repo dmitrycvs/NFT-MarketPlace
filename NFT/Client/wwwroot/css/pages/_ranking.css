@@ -1,0 +1,128 @@
+#Rankings {
+    background-color: var(--background);
+  }
+  
+  #Rankings .header {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  
+  #Rankings .header h2 {
+    color: var(--text-color);
+    font-family: var(--font-work-sans);
+    font-size: 51px;
+    line-height: 110%;
+    font-weight: 600;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+  }
+  
+  #Rankings .header p {
+    color: var(--text-color);
+    font-family: var(--font-work-sans);
+    font-size: 22px;
+    line-height: 160%;
+    font-weight: 400;
+  }
+  
+  @media (max-width: var(--tablet-width)) {
+    #Rankings .header {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+  
+    #Rankings .header h2 {
+      font-size: 38px;
+    }
+  
+    #Rankings .header p {
+      font-size: 16px;
+    }
+  }
+  
+  @media (max-width: var(--mobile-width)) {
+    #Rankings .header {
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+  
+    #Rankings .header h2 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+  }
+  
+  #Rankings .tabs {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+  }
+  
+  #Rankings .tabs .container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  #Rankings .tabs .container > button {
+    transition: all 0.3s ease;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    height: 60px;
+    width: 100%;
+    display: flex;
+    column-gap: 16px;
+    align-items: center;
+    padding: 0px 30px;
+    justify-content: center;
+  }
+  
+  #Rankings .tabs .container > button h5 {
+    color: var(--caption-label-text);
+    font-family: var(--font-space-mono);
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 140%;
+    text-transform: capitalize;
+  }
+  
+  @media screen and (max-width: var(--tablet-width)) {
+    #Rankings .tabs .container > button {
+      width: 100%;
+    }
+  
+    #Rankings .tabs .container > button h5 {
+      font-size: 16px;
+    }
+  }
+  
+  @media screen and (max-width: var(--mobile-width)) {
+    #Rankings .tabs .container {
+      #today-button h5,
+      #this-week-button h5,
+      #this-month-button h5 {
+        font-size: 0; /* Hide original text content */
+      }
+  
+      #today-button h5::before,
+      #this-week-button h5::before,
+      #this-month-button h5::before {
+        content: "1d", "7d", "30d";
+        font-size: 16px;
+      }
+  
+      #Rankings .tabs .container > button {
+        padding: 0px 10px;
+        width: 100%;
+      }
+    }
+  }
+  
+  #Rankings .clicked-on {
+    border-bottom: 2px solid var(--caption-label-text) !important;
+  }
+  
+  #Rankings .clicked-on h5 {
+    color: var(--text) !important;
+  }
+  

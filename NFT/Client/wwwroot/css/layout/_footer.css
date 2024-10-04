@@ -1,0 +1,274 @@
+/* Define the variables at the root level if not already defined */
+:root {
+    --tablet-width: 1067px;
+    --mobile-width: 707px;
+    --background-secondary: #3b3b3b; /* Assuming the color is defined */
+    --text-color: #ffffff; /* Assuming the color is defined */
+}
+
+.footer {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background: var(--background-secondary);
+}
+
+.footer a {
+    /* CSS for primary-transition */
+    transition: all 0.3s ease;
+    &:hover {
+        transform: scale(0.9);
+        cursor: pointer;
+    }
+}
+
+.footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer__top {
+    margin-bottom: 30px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.footer__top__left {
+    width: 327.414px;
+    padding-right: 84px;
+}
+
+.footer__top__left__header {
+    margin-bottom: 30px;
+}
+
+.footer__top__left__header img:last-child {
+    width: 199.414px;
+    height: 19.8px;
+    margin-bottom: 3.6px;
+}
+
+.footer__top__left p {
+    /* CSS for text-sans mixin */
+    font-family: 'Work Sans', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%;
+    color: #ccc;
+}
+
+.footer__top__left p:nth-child(2) {
+    margin-bottom: 20px;
+}
+
+.footer__top__left p:nth-child(3) {
+    margin-bottom: 15px;
+}
+
+.footer__top__left__icons {
+    display: flex;
+    column-gap: 10px;
+}
+
+.footer__top__middle {
+    width: 240px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 25px;
+}
+
+.footer__top__middle h5 {
+    /* CSS for header-space mixin */
+    font-family: 'Space Mono', monospace;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 160%;
+    text-transform: capitalize;
+}
+
+.footer__top__middle__pages {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.footer__top__middle__pages a {
+    /* CSS for text-sans mixin */
+    font-family: 'Work Sans', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%;
+    color: #ccc;
+    text-decoration: none;
+}
+
+.footer__top__right {
+    width: 420px;
+}
+
+.footer__top__right h5 {
+    margin-bottom: 25px;
+    /* CSS for header-space mixin */
+}
+
+.footer__top__right p {
+    width: 330px;
+    margin-bottom: 20px;
+    /* CSS for text-sans mixin */
+}
+
+.footer__top__right__form {
+    width: 420px;
+    height: 60px;
+    border-radius: 20px;
+    background: var(--text-color);
+
+    form {
+        width: 420px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    input {
+        /* CSS for text-sans mixin */
+        margin-left: 20px;
+        border: 1px solid transparent;
+        color: var(--background-secondary);
+
+        &::placeholder {
+            color: var(--background-secondary);
+        }
+
+        &:focus,
+        &:active {
+            outline: none;
+        }
+    }
+
+    button {
+        /* CSS for secondary-btn-colored */
+        display: inline-flex;
+        height: 60px;
+        padding: 0px 50px;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        flex-shrink: 0;
+        border-radius: 20px;
+        background: var(--call-to-action);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 1px solid transparent;
+        /* CSS for text-sans mixin */
+        width: 179px;
+
+        &:hover {
+            transform: none;
+            width: 160px;
+        }
+
+        img {
+            display: none;
+        }
+    }
+}
+
+
+
+.footer__bottom__divider {
+    background: var(--caption-label-text); /* Make sure this variable is defined */
+    width: 1050px;
+    height: 1px;
+    margin-bottom: 20px;
+}
+
+.footer__bottom p {
+    /* CSS for text-sans mixin */
+    font-size: 12px;
+    line-height: 110%;
+    color: #ccc;
+}
+
+/* Responsive rules for tablet */
+@media (max-width: var(--tablet-width)) {
+    .footer .container {
+        align-items: baseline;
+    }
+    .footer__top {
+        margin: none;
+        margin-bottom: 49px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 30px;
+    }
+    .footer__top__left {
+        padding: none;
+    }
+    .footer__top__left__header {
+        margin-bottom: 20px;
+    }
+    .footer__top__middle {
+        row-gap: 20px;
+    }
+    .footer__top__right {
+        width: 100%;
+    }
+    .footer__top__right h5 {
+        margin-bottom: 20px;
+    }
+    .footer__top__right p {
+        width: 100%;
+    }
+    .footer__bottom__divider {
+        width: 690px;
+    }
+}
+
+/* Responsive rules for mobile */
+@media (max-width: var(--mobile-width)) {
+    .footer__top {
+        margin-bottom: 30px;
+    }
+    .footer__top__right__form {
+        width: 100%;
+        height: 108px;
+        border-radius: 0px;
+        background: none;
+
+        form {
+            width: 100%;
+            height: 108px;
+            flex-direction: column;
+            row-gap: 16px;
+        }
+        input {
+            width: 100%;
+            height: 46px;
+            padding: 16px 20px;
+            margin: 0;
+            border-radius: 20px;
+            border: 1px solid var(--caption-label-text);
+            background: var(--text-color);
+        }
+        button {
+            img {
+                display: inline;
+            }
+            width: 100%;
+            height: 46px;
+            /* CSS for secondary-btn-colored */
+            &:hover {
+                transform: none;
+                width: 260px;
+            }
+        }
+    }
+    .footer__bottom__divider {
+        width: 315px;
+    }
+}
