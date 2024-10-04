@@ -1,0 +1,37 @@
+:root {
+    --tablet-width: 1067px;  /* Adjust this value based on your existing variables */
+    --caption-label-text: #858584; /* Assume this color value as defined earlier */
+}
+
+#bad-request {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    align-items: center;
+    grid-column: 1 / 4;
+    grid-row: 1;
+}
+
+#bad-request p {
+    text-align: center;
+    font-family: "Space Mono", monospace; /* Assuming 'text-space' sets this family */
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    color: var(--caption-label-text);
+}
+
+#bad-request img {
+    width: 50px;
+}
+
+@media (max-width: var(--tablet-width)) {
+    #bad-request p {
+        font-size: 20px;
+    }
+
+    #bad-request img {
+        width: 30px;
+    }
+}

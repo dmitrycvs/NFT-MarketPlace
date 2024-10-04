@@ -1,0 +1,21 @@
+:root {
+    --tablet-width: 1067px;  /* These should match with the values defined in your variables.css */
+    --mobile-width: 707px;
+}
+
+.container {
+    width: 1050px;
+    margin: 0 auto;
+}
+
+@media (max-width: var(--tablet-width)) {
+    .container {
+        width: 690px;
+    }
+}
+
+@media (max-width: var(--mobile-width)) {
+    .container {
+        width: 315px;
+    }
+}

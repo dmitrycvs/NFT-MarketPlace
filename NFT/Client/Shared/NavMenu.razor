@@ -1,0 +1,91 @@
+﻿@using MudBlazor
+
+
+<MudNavMenu Bordered="true">
+    <MudNavLink Href="/" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Home">Acasă</MudNavLink>
+    <MudDivider />
+
+@*     <AuthorizeView> Peurma in perspectiva vom adauga IsAuthorizzedUser or not
+ *@        <MudNavLink Href="/my-profile" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.AccountBox">Profilul meu</MudNavLink>
+        <MudDivider />
+@*     </AuthorizeView>
+ *@
+        <MudNavGroup Expanded="true" Title="Management utilizatori">
+                <MudNavLink Href="/players" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Contacts">Jucători</MudNavLink>
+                <MudDivider />
+
+            <MudNavLink Href="/trainers" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.DirectionsRun">Antrenori</MudNavLink>
+            <MudDivider />
+            <MudNavLink Href="/parents" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.FamilyRestroom">Părinți</MudNavLink>
+            <MudDivider />
+            <MudNavLink Href="/admin-users" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Groups">Administratori</MudNavLink>
+            <MudDivider />
+            <MudNavLink Href="/user-archive" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Archive">Arhivă</MudNavLink>
+            <MudDivider />
+        </MudNavGroup>
+
+     
+        <MudNavGroup Title="Management roluri">
+                <MudNavLink Href="/roles" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.LockPerson">Roluri si permisiuni</MudNavLink>
+                <MudDivider />
+        
+        </MudNavGroup>
+
+            <MudNavGroup Title="Management plăți">
+                    <MudNavLink Href="/payments" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.AccountBalanceWallet">Plăți</MudNavLink>
+                    <MudDivider />
+
+                    <MudNavLink Href="/payment-categories" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Category">Categorii de plăți</MudNavLink>
+                    <MudDivider />
+            </MudNavGroup>
+
+ 
+
+    <MudNavGroup Title="Management grupe">
+       
+            <MudNavLink Href="/groups" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Groups2">Grupele mele</MudNavLink>
+            <MudDivider />
+        
+       
+    </MudNavGroup>
+
+            <MudNavGroup Title="Management evenimente">
+                    <MudNavLink Href="/events" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.CalendarMonth">Evenimente</MudNavLink>
+                    <MudDivider />
+                    <MudNavLink Href="/competitions" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.CalendarMonth">Competiții</MudNavLink>
+                    <MudDivider />
+            </MudNavGroup>
+
+        <MudNavGroup Title="Management antrenamente">
+            
+                <MudNavLink Href="/schedules" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Schedule">Orar</MudNavLink>
+                <MudDivider />
+
+            <MudDivider />
+        </MudNavGroup>
+
+
+        <MudNavGroup Title="Management terenuri">
+            <MudNavLink Href="/footballfields" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.SportsSoccer">Terenuri Fotbal</MudNavLink>
+            <MudDivider />
+        </MudNavGroup>
+
+        <MudNavGroup Title="Management meciuri">
+            <MudNavLink Href="/games" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.PendingActions">Meciuri</MudNavLink>
+            <MudDivider />
+        </MudNavGroup>
+        
+</MudNavMenu>
+@code {
+    private bool collapseNavMenu = true;
+    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+    private void ToggleNavMenu() => collapseNavMenu = !collapseNavMenu;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        // var currentUser = await currentUserService.GetAsync();
+        // var user = await userService.GetUserById(currentUser.Id);
+        //Sa vad cum NavMenu in Sfr cu AuthorizedView
+    }
+}

@@ -3,22 +3,23 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.OpenApi.Models;
 using NFT.Infrastructure;
 using System.Reflection;
-using MediatR;
 using NFT.UseCases.Users.Commands;
 using NFT.Shared.DataTransferObjects.Pagination;
 using NFT.UseCases.Services.Pagination;
 using FluentValidation;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
-
+builder.Services.AddServerSideBlazor();
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<CreateUserCommand>());
 builder.Services.AddSingleton<IPaginationService, PaginationService>();
 builder.Services.AddValidatorsFromAssemblyContaining<CreateUserCommandValidator>();
+
 
 
 // Configure API versioning
@@ -58,11 +59,14 @@ else
 }
 
 app.UseHttpsRedirection();
-app.UseBlazorFrameworkFiles();
-app.UseStaticFiles();
-app.UseAuthentication();
+app.UseStaticFiles(); // Ensure static files are served before Blazor files
+
+app.UseBlazorFrameworkFiles(); // Needs to come after UseStaticFiles
 app.UseRouting();
+
+app.UseAuthentication();
 app.UseAuthorization();
+
 app.MapRazorPages();
 app.MapControllers();
 app.MapFallbackToFile("index.html");

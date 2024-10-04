@@ -1,0 +1,163 @@
+@page "/administration/marketplace"
+
+@inject IJSRuntime JSRuntime
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Work+Sans:wght@400;600&display=swap"
+          rel="stylesheet" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet"
+          type="text/css"
+          href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
+    <link rel="icon" type="image/x-icon" href="/media/icons/fox.svg" />
+    <title>Marketplace</title>
+</head>
+<body id="Marketplace">
+    <section class="navbar">
+        <a class="navbar__left" href="../../../client/pages/home/index.html">
+            <img src="media/icons/store.svg" alt="Store icon" />
+            <img src="media/icons/NFTMarketplace.svg" alt="NFT Marketplace" />
+        </a>
+        <div class="navbar__right">
+            <div class="navbar__right sidebar">
+                <NavLink href="/administration/marketplace">Marketplace</NavLink>
+                <NavLink href="Rankings">Rankings</NavLink>
+                <NavLink href="#">Connect a wallet</NavLink>
+                <NavLink href="CreateAccount"
+                         class="navbar__right__sign-up-btn">
+                    <img src="media/icons/user.svg" alt="User icon" />
+                    <p>Sign Up</p>
+                </NavLink>
+            </div>
+            <img id="burger-btn"
+                 src="media/icons/burger.svg"
+                 alt="Burger icon" />
+        </div>
+    </section>
+    <section class="search">
+        <div class="container">
+            <div class="search__header">
+                <h2>Browse Marketplace</h2>
+                <p>Browse through more than 50k NFTs on the NFT Marketplace.</p>
+            </div>
+            <div class="search__input-container">
+                <input id="search-input"
+                       type="text"
+                       placeholder="Search your favourite NFTs" />
+                <img src="media/icons/magnifying-glass.svg"
+                     alt="magnifying glass icon" />
+            </div>
+        </div>
+    </section>
+    <section class="tabs">
+        <div class="tabs__line"></div>
+        <div class="container">
+            <button id="nfts-button">
+                <h5>NFTs</h5>
+                <div id="total-nft-count">0</div>
+            </button>
+            <button id="collection-button">
+                <h5>Collection</h5>
+                <div>0</div>
+            </button>
+        </div>
+    </section>
+    <section class="nft-container">
+        <div class="container" id="container"></div>
+        <div class="nft-container__empty">
+            <h2>Nothing Here ... Yet</h2>
+        </div>
+        <div class="nft-container__collections container"></div>
+        <div class="loader-container" id="loader">
+            <div class="loader">
+                <div class="loader-inner">
+                    <div class="loader-block"></div>
+                    <div class="loader-block"></div>
+                    <div class="loader-block"></div>
+                    <div class="loader-block"></div>
+                    <div class="loader-block"></div>
+                    <div class="loader-block"></div>
+                    <div class="loader-block"></div>
+                    <div class="loader-block"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="load-more-btn-nfts"></section>
+    <section id="load-more-btn-collection"></section>
+    <section class="footer">
+        <div class="container">
+            <div class="footer__top">
+                <div class="footer__top__left">
+                    <div class="footer__top__left__header">
+                        <img src="media/icons/store.svg" alt="store logo" />
+                        <img src="media/icons/NFTMarketplace.svg"
+                             alt="NFT Marketplace" />
+                    </div>
+                    <p>NFT marketplace UI created with Anima for Figma.</p>
+                    <p>Join our community</p>
+                    <div class="footer__top__left__icons">
+                        <a href="">
+                            <img src="media/icons/discord-logo.svg"
+                                 alt="Discord Logo" />
+                        </a>
+                        <a href="">
+                            <img src="media/icons/youtube-logo.svg"
+                                 alt="Youtube Logo" />
+                        </a>
+                        <a href="">
+                            <img src="media/icons/twitter-logo.svg"
+                                 alt="Twitter Logo" />
+                        </a>
+                        <a href="">
+                            <img src="media/icons/instagram-logo.svg"
+                                 alt="Instagram Logo" />
+                        </a>
+                    </div>
+                </div>
+                <div class="footer__top__middle">
+                    <h5>Explore</h5>
+
+                    <div class="footer__top__middle__pages">
+                        <a href="../../../client/pages/marketplace/index.html">Marketplace</a>
+                        <a href="../../../client/pages/rankings/index.html">Rankings</a>
+                        <a href="#">Connect a wallet</a>
+                    </div>
+                </div>
+                <div class="footer__top__right">
+                    <h5>Join our weekly digest</h5>
+                    <p>Get exclusive promotions & updates straight to your inbox.</p>
+                    <div class="footer__top__right__form">
+                        <form action="" class="emailForm">
+                            <input placeholder="Enter your email" class="emailInput" />
+                            <button type="submit">
+                                <img src="media/icons/envelope.svg"
+                                     alt="envelope icon" />Subscribe
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <div class="footer__bottom__divider"></div>
+                <p>Ⓒ NFT Market. Use this template freely.</p>
+            </div>
+        </div>
+    </section>
+    <script type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="common/email-verification.js"></script>
+    <script src="common/sidebar.js"></script>
+    <script src="/js/MarketplacePageScript.js"></script>
+</body>
+</html>
+
+
+
