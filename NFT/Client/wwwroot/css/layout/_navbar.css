@@ -1,0 +1,141 @@
+/* Define necessary CSS variables at the root level if not already defined */
+:root {
+    --tablet-width: 1067px;  /* These should match with values defined in your variables.css */
+    --mobile-width: 707px;
+    --background-secondary: #3b3b3b; /* Assuming the color is defined */
+    --text-color: #ffffff; /* Assuming the color is defined */
+}
+
+/* Base styling for the navbar */
+.navbar {
+    display: flex;
+    padding: 20px 50px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar__left {
+    display: flex;
+    height: 32px;
+    text-decoration: none;
+}
+
+.navbar__left img:first-child {
+    width: 32px;
+}
+
+.navbar__left img:last-child {
+    width: 199.414px;
+    height: 19.8px;
+    margin: 8.6px 0px 3.6px 12px;
+}
+
+.navbar__left:hover {
+    cursor: pointer;
+}
+
+.navbar__right {
+    display: flex;
+    column-gap: 10px;
+    align-items: center;
+}
+
+.navbar__right a {
+    text-decoration: none;
+    background-color: transparent;
+    border: none;
+    padding: 0px 20px;
+    /* CSS for header-sans mixin */
+    font-family: 'Work Sans', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 140%;
+    text-transform: none;
+    transition: all 0.3s ease;
+}
+
+.navbar__right a:hover {
+    transform: scale(0.9);
+    cursor: pointer;
+}
+
+.navbar__right a:last-child {
+    /* CSS for secondary-btn-colored */
+    display: inline-flex;
+    height: 60px;
+    padding: 0px 30px;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    background: var(--call-to-action); /* Assuming the color is defined */
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.navbar__right a:last-child p {
+    /* CSS for header-sans mixin */
+    font-family: 'Work Sans', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 140%;
+}
+
+.navbar__right img {
+    display: none;
+}
+
+/* Responsive styles for tablet */
+@media (max-width: var(--tablet-width)) {
+    .navbar {
+        padding: 15px 50px;
+    }
+
+    .navbar__left {
+        height: 24px;
+    }
+
+    .navbar__left img:first-child {
+        width: 24px;
+    }
+
+    .navbar__left img:last-child {
+        width: 149.56px;
+        height: 14.85px;
+        margin: 6.15px 0px 2.7px 9px;
+    }
+
+    .navbar__right img {
+        display: inline-block;
+        width: 24px;
+    }
+
+    .navbar__right .sidebar {
+        display: flex;
+        flex-direction: column;
+        row-gap: 30px;
+        align-items: end;
+        position: fixed;
+        background-color: var(--background-secondary);
+        top: 0;
+        right: -300px;
+        padding: 30px;
+        height: 100vh;
+        z-index: 300;
+    }
+
+    .navbar__right .sidebar a {
+        width: 100%;
+        transition: all 0.3s ease;
+    }
+}
+
+/* Responsive styles for mobile */
+@media (max-width: var(--mobile-width)) {
+    .navbar {
+        padding: 15px 50px;
+    }
+}
