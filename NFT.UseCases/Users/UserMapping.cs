@@ -15,10 +15,6 @@ namespace NFT.UseCases.Users
                 {
                     Id = user.Id,
                     Login = user.Login,
-                    Inventories = user.Inventories.Select(inventory => new InventoryDto
-                    {
-                        Id = inventory.Id,
-                    }).ToList()
                     //IsAuthenticated = user.IsAuthenticated //pentru viitor
 
                 };

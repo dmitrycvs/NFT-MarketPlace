@@ -28,10 +28,12 @@ public class GetInventoryByIdQueryHandler : IRequestHandler<GetInventoryByIdQuer
 
     public async Task<InventoryDto> Handle(GetInventoryByIdQuery request, CancellationToken cancellationToken)
     {
+#pragma warning disable CS8603 // Possible null reference return.
         return await _appDbContext.Inventories
             .Where(i => i.Id == request.Id)
-            .Select(inventory => new InventoryDto {Id = inventory.Id, UserId = inventory.UserId})
+            .Select(inventory => new InventoryDto {Id = inventory.Id, UserId = inventory.UserId }) //TO DO
             .FirstOrDefaultAsync(cancellationToken);
+#pragma warning restore CS8603 // Possible null reference return.
     }
 }
 

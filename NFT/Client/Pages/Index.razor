@@ -1,3 +1,28 @@
 ﻿@page "/"
 
-<h1>Hello, worldddd!</h1>
+
+@inject NavigationManager navigationNamanger;
+
+
+<h1>Welcome to home page</h1>
+
+@code {
+
+    // protected async override Task OnInitializedAsync()
+    // {
+    //     await currentUserService.InitializeAsync();
+
+    //     if (!currentUser.IsAuthenticated)
+    //     {
+    //         navigationNamanger.NavigateTo("/login");
+    //     }
+    //     else
+    //     {
+    //         navigationNamanger.NavigateTo("/");
+    //     }
+    // }
+    protected async override Task OnInitializedAsync(){
+             navigationNamanger.NavigateTo("/administration/home");
+
+    }
+}
