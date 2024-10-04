@@ -16,22 +16,41 @@
       href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
     />
     <link rel="icon" type="image/x-icon" href="../../media/icons/fox.svg" />
-    <title>Login</title>
+    <title>Artist</title>
   </head>
-  <body id="Login">
+  <body id="Artist">
+    <section class="loader-container">
+      <div class="banter-loader">
+        <div class="banter-loader__box"></div>
+        <div class="banter-loader__box"></div>
+        <div class="banter-loader__box"></div>
+        <div class="banter-loader__box"></div>
+        <div class="banter-loader__box"></div>
+        <div class="banter-loader__box"></div>
+        <div class="banter-loader__box"></div>
+        <div class="banter-loader__box"></div>
+        <div class="banter-loader__box"></div>
+      </div>
+    </section>
     <section class="navbar">
-      <a class="navbar__left" href="../../../client/pages/home/index.html"
+      <a
+        class="navbar__left"
+        href="../../../client/pages/home/index.html"
         ><img src="../../media/icons/store.svg" alt="Store icon" />
         <img src="../../media/icons/NFTMarketplace.svg" alt="NFT Marketplace"
       /></a>
       <div class="navbar__right">
         <div class="navbar__right sidebar">
-          <a href="../../../client/pages/marketplace/index.html">Marketplace</a>
-          <a href="../../../client/pages/rankings/index.html">Rankings</a>
+          <a href="../../../client/pages/marketplace/index.html"
+            >Marketplace</a
+          >
+          <a href="../../../client/pages/rankings/index.html"
+            >Rankings</a
+          >
           <a href="#">Connect a wallet</a>
           <a
             href="../../../client/pages/create-account/index.html"
-            class="navbar__right__sign-up-btn"
+            class="navbar__left__btns__sign-up-btn"
           >
             <img src="../../media/icons/user.svg" alt="User icon" />
             <p>Sign up</p>
@@ -44,28 +63,89 @@
         />
       </div>
     </section>
-    <section class="login-section">
-      <div class="login-section__left"></div>
-      <div class="login-section__right">
-        <div class="login-section__right__text">
-          <h2>Login</h2>
-          <p>
-            Welcome! Enter your credentials to log in and access your account.
-          </p>
+    <section class="cover">
+      <div class="cover__gradient"></div>
+    </section>
+    <section class="artist">
+      <div class="container">
+        <div class="artist__left">
+          <img src="" alt="" />
+          <h2></h2>
+          <div class="artist__left__btns">
+            <button class="artist__left__btns__copy-btn">
+              <img src="../../media/icons/copy.svg" alt="copy icon" />
+              <p></p>
+            </button>
+            <button href="#" class="artist__left__btns__follow-btn">
+              <img src="../../media/icons/plus.svg" alt="plus icon" />
+              <p>Follow</p>
+            </button>
+          </div>
+          <div class="artist__left__stats">
+            <div>
+              <h4></h4>
+              <p>Volume</p>
+            </div>
+            <div>
+              <h4></h4>
+              <p>NFTs Sold</p>
+            </div>
+            <div>
+              <h4></h4>
+              <p>Followers</p>
+            </div>
+          </div>
+          <div class="artist__left__bio">
+            <h5>Bio</h5>
+            <p>The internet's friendliest designer kid.</p>
+          </div>
+          <div class="artist__left__links">
+            <h5>Links</h5>
+            <div>
+              <img src="../../media/icons/globe.svg" alt="globe icon" />
+              <img
+                src="../../media/icons/discord-logo.svg"
+                alt="discord logo"
+              />
+              <img
+                src="../../media/icons/youtube-logo.svg"
+                alt="youtube logo"
+              />
+              <img
+                src="../../media/icons/twitter-logo.svg"
+                alt="twitter logo"
+              />
+              <img
+                src="../../media/icons/instagram-logo.svg"
+                alt="instagram logo"
+              />
+            </div>
+          </div>
         </div>
-        <form class="login-section__right__form" id="login-form">
-          <div>
-            <img src="../../media/icons/user-grey.svg" alt="user icon" />
-            <input id="username" placeholder="Username" />
-          </div>
-          <p class="username error-message"></p>
-          <div>
-            <img src="../../media/icons/lock-grey.svg" alt="lock icon" />
-            <input id="password" placeholder="Password" type="password" />
-          </div>
-          <p class="password error-message"></p>
-          <button type="submit">Login</button>
-        </form>
+      </div>
+    </section>
+    <section class="tabs">
+      <div class="tabs__line"></div>
+      <div class="container">
+        <button id="created-button">
+          <h5>Created</h5>
+          <div>0</div>
+        </button>
+        <button id="owned-button">
+          <h5>Owned</h5>
+          <div>0</div>
+        </button>
+        <button id="collection-button">
+          <h5>Collection</h5>
+          <div>0</div>
+        </button>
+      </div>
+    </section>
+    <section class="nft-cards">
+      <div class="container"></div>
+      <div class="nft-cards__collection container"></div>
+      <div class="nft-cards__empty">
+        <h2>Nothing Here ... Yet</h2>
       </div>
     </section>
     <section class="footer">
@@ -107,10 +187,13 @@
           <div class="footer__top__middle">
             <h5>Explore</h5>
             <div class="footer__top__middle__pages">
-              <a href="../../../client/pages/marketplace/index.html"
+              <a
+                href="../../../client/pages/marketplace/index.html"
                 >Marketplace</a
               >
-              <a href="../../../client/pages/rankings/index.html">Rankings</a>
+              <a href="../../../client/pages/rankings/index.html"
+                >Rankings</a
+              >
               <a href="#">Connect a wallet</a>
             </div>
           </div>
