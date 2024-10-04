@@ -1,5 +1,7 @@
 ﻿@page "/administration/home"
 
+@inject IJSRuntime JSRuntime
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +27,7 @@
         </NavLink>
         <div class="navbar__right">
             <div class="navbar__right sidebar">
-                <NavLink href="Marketplace">Marketplace</NavLink>
+                <NavLink href="/administration/marketplace">Marketplace</NavLink>
                 <NavLink href="Rankings">Rankings</NavLink>
                 <NavLink href="#">Connect a wallet</NavLink>
                 <NavLink href="CreateAccount"
@@ -159,7 +161,10 @@
                 <div class="skeleton"></div>
             </div>
             <div class="top-artists__artists"></div>
-            <a href="pages/rankings/index.html"
+            <a href="pages/rankings/index.html">
+                @*Тут нужно поменять ссылку на формат /administration/rankings в 
+
+                зависимости как твоя страница ranking будет называться*@
                class="top-artists__mobile-btn">
                 <img src="media/icons/user.svg" alt="user icon" />
                 <p>View Rankings</p>
@@ -260,7 +265,7 @@
                     <h3>Discover More NFTs</h3>
                     <p>Explore new trending NFTs</p>
                 </div>
-                <a href="pages/marketplace/index.html">
+                <a href="/administration/marketplace">
                     <img src="media/icons/eye.svg" alt="eye icon" />
                     <p>See All</p>
                 </a>
@@ -347,7 +352,7 @@
                         <p>Shroomie</p>
                     </div>
                     <h5>Magic Mashrooms</h5>
-                    <a href="pages/marketplace/index.html">
+                    <a href="">
                         <img src="media/icons/eye.svg" alt="eye icon" />
                         <p>See NFT</p>
                     </a>
@@ -495,6 +500,6 @@
             src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="common/email-verification.js"></script>
     <script src="common/sidebar.js"></script>
-    <script src="./script.js"></script>
+    <script src="js/HomePageScript.js"></script>
 </body>
 </html>

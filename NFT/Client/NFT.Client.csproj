@@ -7,6 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Pages\Administration\Artist\ArtistPage.razor" />
+    <Content Remove="Pages\Administration\Login\LoginPage.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MediatR" Version="12.4.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.2" PrivateAssets="all" />
@@ -20,7 +25,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Pages\Administration\Marketplace\" />
     <Folder Include="Pages\Public\" />
     <Folder Include="wwwroot\css\components\" />
     <Folder Include="wwwroot\media\gifs\" />
@@ -29,7 +33,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Pages\Administration\Artist\ArtistPage.razor" />
     <None Include="Pages\Administration\Home\HomePage.razor" />
+    <None Include="Pages\Administration\Login\LoginPage.razor" />
+    <None Include="Pages\Administration\Marketplace\MarketplacePage.razor" />
+    <None Include="wwwroot\js\HomePageScript.js" />
+    <None Include="wwwroot\js\MarketplacePageScript.js" />
   </ItemGroup>
 
 </Project>

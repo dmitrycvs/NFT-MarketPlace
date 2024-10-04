@@ -74,7 +74,7 @@ function fetchNFTs() {
     .catch((err) => {
       const errorMessage = `
     <div id="bad-request">
-    <img src="../../media/icons/sad-face.svg" alt="sad face icon" />
+    <img src="media/icons/sad-face.svg" alt="sad face icon" />
       <p>Sorry, we are experiencing technical difficulties with our API server. Please check back later.</p>
     </div>`;
       document.querySelector("#container").innerHTML = errorMessage;
@@ -106,15 +106,15 @@ function renderNFTs(nfts, container) {
     nftElement.innerHTML = `
     <div id="heart-icon">
     <img
-      src="../../media/icons/heart.svg"
+      src="/media/icons/heart.svg"
       alt="heart icon"
     />
   </div>
-        <img src="../../../${nft.imgPath}" alt="${nft.name}" />
+      <img src="/${nft.imgPath}" alt="${nft.name}" />
         <div class="nft-container__nft__text">
           <h5>${nft.name}</h5>
           <div class="nft-container__nft__text__artist">
-            <img src="../../../${nft.creator.profileImgPath}" alt=${nft.creator.name} />
+            <img src="${nft.creator.profileImgPath}" alt=${nft.creator.name} />
             <span>${nft.creator.name}</span>
           </div>
           <div class="nft-container__nft__text__details">
@@ -257,7 +257,7 @@ async function fetchCollectionNFTs(flatFavoriteNfts, startIndex) {
   if (responses[0] == "unsuccessful") {
     var errorMessage = `
     <div id="bad-request">
-    <img src="../../media/icons/sad-face.svg" alt="sad face icon" />
+    <img src="/media/icons/sad-face.svg" alt="sad face icon" />
       <p>Sorry, we are experiencing technical difficulties with our API server. Please check back later.</p>
     </div>`;
     document.querySelector(".nft-container__collections").innerHTML =
@@ -321,8 +321,8 @@ function handleHeartIconClick(nftName, artistName) {
 function updateHeartIcon(heartIcon, isFavorite) {
   const heartImg = heartIcon.querySelector("img");
   heartImg.src = isFavorite
-    ? "../../media/icons/heart-filled.svg"
-    : "../../media/icons/heart.svg";
+    ? "/media/icons/heart-filled.svg"
+    : "/media/icons/heart.svg";
 }
 function checkIfFavorite(nftName, artistName) {
   const favoriteNfts = JSON.parse(localStorage.getItem("favoriteNfts")) || [];
