@@ -37,6 +37,7 @@
     <None Include="Pages\Administration\Home\HomePage.razor" />
     <None Include="Pages\Administration\Login\LoginPage.razor" />
     <None Include="Pages\Administration\Marketplace\MarketplacePage.razor" />
+    <None Include="wwwroot\js\CreateAccountPageScript.js" />
     <None Include="wwwroot\js\HomePageScript.js" />
     <None Include="wwwroot\js\MarketplacePageScript.js" />
   </ItemGroup>
