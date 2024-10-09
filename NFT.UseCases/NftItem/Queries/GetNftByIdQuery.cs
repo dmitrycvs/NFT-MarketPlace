@@ -3,7 +3,7 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using NFT.Infrastructure;
-using NFT.Shared.DataTransferObjects.NFT;
+using NFT.Shared.DataTransferObjects.NftItem;
 
 namespace NFT.UseCases.Nft.Queries;
 

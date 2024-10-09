@@ -1,6 +1,5 @@
 using MediatR;
 using NFT.Shared.DataTransferObjects.HistoryLogs;
-using NFT.Shared.DataTransferObjects.NFT;
 using NFT.Shared.DataTransferObjects.NftItem;
 using NFT.Shared.DataTransferObjects.Pagination;
 
@@ -15,5 +14,5 @@ public interface INftService
     Task<PaginationResult<NftItemDto>> GetNfts(NftItemDto queryModel);
     Task<Unit> EditNft(NftItemDto request);
     Task<Guid> SellNft(HistoryLogDto request); 
-
+    Task<List<NftItemDto>> GetAllNftByUserId(Guid userId);
 }

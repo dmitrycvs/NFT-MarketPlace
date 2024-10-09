@@ -1,3 +1,7 @@
+@page "/administration/createaccount"
+
+@inject IJSRuntime JSRuntime
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,41 +13,38 @@
       href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Work+Sans:wght@400;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../../sass/main.css" />
+    <link rel="stylesheet" href="css/main.css" />
     <link
       rel="stylesheet"
       type="text/css"
       href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
     />
-    <link rel="icon" type="image/x-icon" href="../../media/icons/fox.svg" />
+    <link rel="icon" type="image/x-icon" href="/media/icons/fox.svg" />
     <title>Create Account</title>
   </head>
   <body id="Create-account">
-    <section class="navbar">
-      <a class="navbar__left" href="../../../client/pages/home/index.html"
-        ><img src="../../media/icons/store.svg" alt="Store icon" />
-        <img src="../../media/icons/NFTMarketplace.svg" alt="NFT Marketplace"
-      /></a>
-      <div class="navbar__right">
-        <div class="navbar__right sidebar">
-          <a href="../../../client/pages/marketplace/index.html">Marketplace</a>
-          <a href="../../../client/pages/rankings/index.html">Rankings</a>
-          <a href="#">Connect a wallet</a>
-          <a
-            href="../../../client/pages/login/index.html"
-            class="navbar__right__sign-up-btn"
-          >
-            <img src="../../media/icons/user.svg" alt="User icon" />
-            <p>Log in</p>
-          </a>
-        </div>
-        <img
-          id="burger-btn"
-          src="../../media/icons/burger.svg"
-          alt="Burger icon"
-        />
+
+  <section class="navbar">
+    <NavLink class="navbar__left" href="Home">
+      <img src="media/icons/store.svg" alt="Store icon" />
+      <img src="media/icons/NFTMarketplace.svg" alt="NFT Marketplace" />
+    </NavLink>
+    <div class="navbar__right">
+      <div class="navbar__right sidebar">
+        <NavLink href="/administration/marketplace">Marketplace</NavLink>
+        <NavLink href="Rankings">Rankings</NavLink>
+        <NavLink href="#">Connect a wallet</NavLink>
+        <NavLink href="CreateAccount"
+                 class="navbar__right__sign-up-btn">
+          <img src="media/icons/user.svg" alt="User icon" />
+          <p>Sign Up</p>
+        </NavLink>
       </div>
-    </section>
+      <img id="burger-btn"
+           src="media/icons/burger.svg"
+           alt="Burger icon" />
+    </div>
+  </section>
     <section class="create-account-section">
       <div class="create-account-section__left"></div>
       <div class="create-account-section__right">
@@ -59,25 +60,25 @@
           id="registration-form"
         >
           <div>
-            <img src="../../media/icons/user-grey.svg" alt="user icon" />
+            <img src="media/icons/user-grey.svg" alt="user icon" />
             <input id="username" placeholder="Username" />
           </div>
           <p class="username error-message"></p>
           <div>
             <img
-              src="../../media/icons/envelope-grey.svg"
+              src="media/icons/envelope-grey.svg"
               alt="envelope icon"
             />
             <input id="email" placeholder="Email Address" />
           </div>
           <p class="email error-message"></p>
           <div>
-            <img src="../../media/icons/lock-grey.svg" alt="lock icon" />
+            <img src="media/icons/lock-grey.svg" alt="lock icon" />
             <input id="password" placeholder="Password" type="password" />
           </div>
           <p class="password error-message"></p>
           <div>
-            <img src="../../media/icons/lock-grey.svg" alt="lock icon" />
+            <img src="media/icons/lock-grey.svg" alt="lock icon" />
             <input
               id="confirmPassword"
               placeholder="Confirm Password"
@@ -94,9 +95,9 @@
         <div class="footer__top">
           <div class="footer__top__left">
             <div class="footer__top__left__header">
-              <img src="../../media/icons/store.svg" alt="store logo" />
+              <img src="media/icons/store.svg" alt="store logo" />
               <img
-                src="../../media/icons/NFTMarketplace.svg"
+                src="media/icons/NFTMarketplace.svg"
                 alt="NFT Marketplace"
               />
             </div>
@@ -105,22 +106,22 @@
             <div class="footer__top__left__icons">
               <a href=""
                 ><img
-                  src="../../media/icons/discord-logo.svg"
+                  src="media/icons/discord-logo.svg"
                   alt="Discord Logo"
               /></a>
               <a href=""
                 ><img
-                  src="../../media/icons/youtube-logo.svg"
+                  src="media/icons/youtube-logo.svg"
                   alt="Youtube Logo"
               /></a>
               <a href=""
                 ><img
-                  src="../../media/icons/twitter-logo.svg"
+                  src="media/icons/twitter-logo.svg"
                   alt="Twitter Logo"
               /></a>
               <a href=""
                 ><img
-                  src="../../media/icons/instagram-logo.svg"
+                  src="media/icons/instagram-logo.svg"
                   alt="Instagram Logo"
               /></a>
             </div>
@@ -128,10 +129,10 @@
           <div class="footer__top__middle">
             <h5>Explore</h5>
             <div class="footer__top__middle__pages">
-              <a href="../../../client/pages/marketplace/index.html"
+              <a href="/administration/marketplace"
                 >Marketplace</a
               >
-              <a href="../../../client/pages/rankings/index.html">Rankings</a>
+              <a href="Rankings">Rankings</a>
               <a href="#">Connect a wallet</a>
             </div>
           </div>
@@ -143,7 +144,7 @@
                 <input placeholder="Enter your email" class="emailInput" />
                 <button type="submit">
                   <img
-                    src="../../media/icons/envelope.svg"
+                    src="media/icons/envelope.svg"
                     alt="envelope icon"
                   />Subscribe
                 </button>
@@ -161,8 +162,8 @@
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/toastify-js"
     ></script>
-    <script src="../../common/js/email-verification.js"></script>
-    <script src="../../common/js/sidebar.js"></script>
-    <script src="./script.js"></script>
+    <script src="common/email-verification.js"></script>
+    <script src="common/sidebar.js"></script>
+    <script src="js/CreateAccountPageScript.js"></script>
   </body>
 </html>

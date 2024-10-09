@@ -59,11 +59,14 @@ else
 }
 
 app.UseHttpsRedirection();
-app.UseBlazorFrameworkFiles();
-app.UseStaticFiles();
-app.UseAuthentication();
+app.UseStaticFiles(); // Ensure static files are served before Blazor files
+
+app.UseBlazorFrameworkFiles(); // Needs to come after UseStaticFiles
 app.UseRouting();
+
+app.UseAuthentication();
 app.UseAuthorization();
+
 app.MapRazorPages();
 app.MapControllers();
 app.MapFallbackToFile("index.html");

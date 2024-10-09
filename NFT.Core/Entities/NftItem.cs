@@ -2,10 +2,6 @@ namespace NFT.Core.Entities;
 
 public class NftItem
 {
-    public NftItem()
-    {
-        User = new User();
-    }
     public Guid Id { get; set; }
     public string Name { get; set; } = string.Empty;
     public string Hash { get; set; }

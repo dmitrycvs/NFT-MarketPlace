@@ -1,4 +1,4 @@
-namespace NFT.Shared.DataTransferObjects.NFT;
+namespace NFT.Shared.DataTransferObjects.NftItem;
 
 public class NftItemDto
 {

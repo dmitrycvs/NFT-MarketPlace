@@ -8,9 +8,9 @@ function updateTimer() {
     var remainingTime = date - now;
 
     if (remainingTime <= 0) {
-        document.getElementById("hours").textContent = "00";
-        document.getElementById("minutes").textContent = "00";
-        document.getElementById("seconds").textContent = "00";
+        document.getElementById("hours").textContent = "23";
+        document.getElementById("minutes").textContent = "12";
+        document.getElementById("seconds").textContent = "01";
     } else {
         var hours = Math.floor(remainingTime / (1000 * 60 * 60));
         var minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));

@@ -1,9 +1,9 @@
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using NFT.Infrastructure;
-using NFT.Shared.DataTransferObjects.NFT;
+using NFT.Shared.DataTransferObjects.NftItem;
 
-namespace NFT.UseCases.Nft.Queries;
+namespace NFT.UseCases.NftItem.Queries;
 
 public class GetNotPaginatedNftsListQuery : IRequest<List<NftItemDto>>
 {

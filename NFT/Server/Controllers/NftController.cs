@@ -1,12 +1,12 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using NFT.Shared.DataTransferObjects.HistoryLogs;
-using NFT.Shared.DataTransferObjects.NFT;
 using NFT.Shared.DataTransferObjects.NftItem;
 using NFT.Shared.DataTransferObjects.Pagination;
 using NFT.UseCases.Nft.Commands;
 using NFT.UseCases.Nft.Queries;
 using NFT.UseCases.NftItem.Commands;
+using NFT.UseCases.NftItem.Queries;
 
 namespace NFT.Server.Controllers;
 
@@ -70,5 +70,12 @@ public class NftController : ControllerBase
         };
         return await _mediator.Send(command);
     }
+
+    [HttpGet("listByUserId/{userId}")]
+    public async Task<List<NftItemDto>> GetNftsByUserId([FromRoute] Guid userId)
+    {
+        return await _mediator.Send(new GetAllNftByUserIdQuery(userId));
+    }
+    
 
 }
