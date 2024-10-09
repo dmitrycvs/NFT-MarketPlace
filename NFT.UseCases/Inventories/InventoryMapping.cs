@@ -1,7 +1,7 @@
 using System.Linq.Expressions;
 using NFT.Core.Entities;
 using NFT.Shared.DataTransferObjects.Inventories;
-using NFT.Shared.DataTransferObjects.NFT;
+using NFT.Shared.DataTransferObjects.NftItem;
 
 namespace NFT.UseCases.Inventories;
 

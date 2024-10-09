@@ -1,5 +1,5 @@
 using NFT.Core.Entities;
-using NFT.Shared.DataTransferObjects.NFT;
+using NFT.Shared.DataTransferObjects.NftItem;
 
 namespace NFT.Shared.DataTransferObjects.Inventories;
 

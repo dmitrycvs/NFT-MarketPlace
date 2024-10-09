@@ -1,7 +1,6 @@
 using System.Net.Http.Json;
 using MediatR;
 using NFT.Shared.DataTransferObjects.HistoryLogs;
-using NFT.Shared.DataTransferObjects.NFT;
 using NFT.Shared.DataTransferObjects.NftItem;
 using NFT.Shared.DataTransferObjects.Pagination;
 
@@ -59,5 +58,11 @@ public class NftService : INftService
     {
         var result = await _httpClient.PostAsJsonAsync("api/Nft/sell", request);
         return await result.Content.ReadFromJsonAsync<Guid>();
+    }
+
+    public async Task<List<NftItemDto>> GetAllNftByUserId(Guid userId)
+    {
+        var result = await _httpClient.GetAsync($"api/Nft/listByUserId/{userId}");
+        return await result.Content.ReadFromJsonAsync<List<NftItemDto>>();
     }
 }
