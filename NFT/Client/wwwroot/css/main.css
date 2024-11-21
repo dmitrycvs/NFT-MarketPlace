@@ -960,7 +960,7 @@
     -ms-flex-negative: 0;
         flex-shrink: 0;
     border-radius: 100px;
-    background: url(../../../client/media/images/avatars/mrFox.png), lightgray 50%/cover no-repeat;
+    background: url(../../media/images/avatars/mrFox.png), lightgray 50%/cover no-repeat;
     background-size: cover;
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
@@ -973,10 +973,10 @@
     font-weight: 400;
     line-height: 140%;
   }
-  #Home .trending__collection__card:nth-child(2) > .trending__collection__card__primary {
-    background: url(../../../client/media/images/mushroom-1.png), lightgray 50%/cover no-repeat;
+#Home .trending__collection__card:nth-child(2) > .trending__collection__card__primary {
+    background: url('/media/images/avatars/mrFox.png'), lightgray 50%/cover no-repeat;
     background-size: cover;
-  }
+}
   #Home .trending__collection__card:nth-child(2) > .trending__collection__card__secondary div:first-child {
     background: url(../../../client/media/images/mushroom-2.png), lightgray 50%/cover no-repeat;
     background-size: cover;
