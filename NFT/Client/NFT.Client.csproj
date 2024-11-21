@@ -29,7 +29,6 @@
     <Folder Include="wwwroot\css\components\" />
     <Folder Include="wwwroot\media\gifs\" />
     <Folder Include="wwwroot\media\icons\" />
-    <Folder Include="wwwroot\media\images\" />
   </ItemGroup>
 
   <ItemGroup>

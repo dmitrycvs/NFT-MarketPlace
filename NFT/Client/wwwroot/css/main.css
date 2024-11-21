@@ -124,7 +124,7 @@
     cursor: pointer;
   }
   .navbar__right a:last-child {
-    display: -webkit-inline-box;
+    display: inline-flex;
     display: -ms-inline-flexbox;
     display: inline-flex;
     height: 60px;
@@ -403,7 +403,7 @@
     outline: none;
   }
   .footer__top__right__form button {
-    display: -webkit-inline-box;
+    display: inline-flex;
     display: -ms-inline-flexbox;
     display: inline-flex;
     height: 60px;
@@ -466,7 +466,7 @@
               align-items: baseline;
     }
     .footer__top {
-      margin: none;
+      margin: 0;
       margin-bottom: 49px;
       display: -webkit-box;
       display: -ms-flexbox;
@@ -478,7 +478,7 @@
       row-gap: 30px;
     }
     .footer__top__left {
-      padding: none;
+      padding: 0;
     }
     .footer__top__left__header {
       margin-bottom: 20px;
@@ -529,7 +529,7 @@
     }
     .footer__top__right__form button {
       width: 100%;
-      display: -webkit-inline-box;
+      display: inline-flex;
       display: -ms-inline-flexbox;
       display: inline-flex;
       height: 60px;
@@ -634,7 +634,7 @@
   }
   #Home .hero__left__middle {
     width: 224px;
-    display: -webkit-inline-box;
+    display: inline-flex;
     display: -ms-inline-flexbox;
     display: inline-flex;
     height: 60px;
@@ -849,7 +849,7 @@
     height: 330px;
     width: 330px;
     border-radius: 20px;
-    background: url(../../../client/media/images/dog.png), lightgray 50%/cover no-repeat;
+    background: url(../media/images/dog.png), lightgray 50%/cover no-repeat;
     background-size: cover;
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
@@ -874,7 +874,7 @@
         -ms-flex: 1 0 0px;
             flex: 1 0 0;
     border-radius: 20px;
-    background: url(../../../client/media/images/cat.png), lightgray 50%/cover no-repeat;
+    background: url(../media/images/cat.png), lightgray 50%/cover no-repeat;
     background-size: cover;
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
@@ -891,7 +891,7 @@
         -ms-flex: 1 0 0px;
             flex: 1 0 0;
     border-radius: 20px;
-    background: url(../../../client/media/images/bear.png), lightgray 50%/cover no-repeat;
+    background: url(../media/images/bear.png), lightgray 50%/cover no-repeat;
     background-size: cover;
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
@@ -960,7 +960,9 @@
     -ms-flex-negative: 0;
         flex-shrink: 0;
     border-radius: 100px;
-    background: url(../../media/images/avatars/mrFox.png), lightgray 50%/cover no-repeat;
+
+    background: url(../media/images/avatars/mrFox.png), lightgray 50%/cover no-repeat;
+
     background-size: cover;
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
@@ -973,36 +975,38 @@
     font-weight: 400;
     line-height: 140%;
   }
-#Home .trending__collection__card:nth-child(2) > .trending__collection__card__primary {
-    background: url('/media/images/avatars/mrFox.png'), lightgray 50%/cover no-repeat;
+
+  #Home .trending__collection__card:nth-child(2) > .trending__collection__card__primary {
+    background: url(../media/images/mushroom-1.png), lightgray 50%/cover no-repeat;
+
     background-size: cover;
 }
   #Home .trending__collection__card:nth-child(2) > .trending__collection__card__secondary div:first-child {
-    background: url(../../../client/media/images/mushroom-2.png), lightgray 50%/cover no-repeat;
+    background: url(../media/images/mushroom-2.png), lightgray 50%/cover no-repeat;
     background-size: cover;
   }
   #Home .trending__collection__card:nth-child(2) > .trending__collection__card__secondary div:nth-child(2) {
-    background: url(../../../client/media/images/mushroom-3.png), lightgray 50%/cover no-repeat;
+    background: url(../media/images/mushroom-3.png), lightgray 50%/cover no-repeat;
     background-size: cover;
   }
   #Home .trending__collection__card:nth-child(2) > .trending__collection__card__text > div > div {
-    background: url(../../../client/media/images/avatars/Shroomie.png), lightgray 50%/cover no-repeat;
+    background: url(../media/images/avatars/Shroomie.png), lightgray 50%/cover no-repeat;
     background-size: cover;
   }
   #Home .trending__collection__card:last-child > .trending__collection__card__primary {
-    background: url(../../../client/media/images/robot-1.png), lightgray 50%/cover no-repeat;
+    background: url(../media/images/robot-1.png), lightgray 50%/cover no-repeat;
     background-size: cover;
   }
   #Home .trending__collection__card:last-child > .trending__collection__card__secondary div:first-child {
-    background: url(../../../client/media/images/robot-2.png), lightgray 50%/cover no-repeat;
+    background: url(../media/images/robot-2.png), lightgray 50%/cover no-repeat;
     background-size: cover;
   }
   #Home .trending__collection__card:last-child > .trending__collection__card__secondary div:nth-child(2) {
-    background: url(../../../client/media/images/robot-3.png), lightgray 50%/cover no-repeat;
+    background: url(../media/images/robot-3.png), lightgray 50%/cover no-repeat;
     background-size: cover;
   }
   #Home .trending__collection__card:last-child > .trending__collection__card__text > div > div {
-    background: url(../../../client/media/images/avatars/BeKind2Robots.png), lightgray 50%/cover no-repeat;
+    background: url(../media/images/avatars/BeKind2Robots.png), lightgray 50%/cover no-repeat;
     background-size: cover;
   }
   @media (max-width: 1067px) {
@@ -1069,7 +1073,7 @@
   #Home .top-artists__mobile-btn {
     width: 100%;
     margin-top: 40px;
-    display: -webkit-inline-box;
+    display:  inline-flex;
     display: -ms-inline-flexbox;
     display: inline-flex;
     height: 60px;
@@ -1151,7 +1155,7 @@
     line-height: 160%;
   }
   #Home .top-artists__header a {
-    display: -webkit-inline-box;
+    display:  inline-flex;
     display: -ms-inline-flexbox;
     display: inline-flex;
     height: 60px;
@@ -1262,8 +1266,7 @@
     left: 0;
     -webkit-transform: translateX(-100%);
             transform: translateX(-100%);
-    background-image: -webkit-gradient(linear, left top, right top, color-stop(0, rgba(255, 255, 255, 0)), color-stop(20%, rgba(255, 255, 255, 0.2)), color-stop(60%, rgba(255, 255, 255, 0.5)), to(rgba(255, 255, 255, 0)));
-    background-image: linear-gradient(90deg, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0.2) 20%, rgba(255, 255, 255, 0.5) 60%, rgba(255, 255, 255, 0));
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 20%, rgba(255, 255, 255, 0.5) 60%, rgba(255, 255, 255, 0) 100%);
     -webkit-animation: shimmer 2s infinite;
             animation: shimmer 2s infinite;
     content: "";
@@ -1607,7 +1610,7 @@
     line-height: 160%;
   }
   #Home .discover__header a {
-    display: -webkit-inline-box;
+    display: inline-flex;
     display: -ms-inline-flexbox;
     display: inline-flex;
     height: 60px;
@@ -1818,7 +1821,7 @@
     }
     #Home .discover__mobile-btn {
       display: block;
-      display: -webkit-inline-box;
+      display: inline-flex;
       display: -ms-inline-flexbox;
       display: inline-flex;
       height: 60px;
@@ -1854,14 +1857,14 @@
     }
   }
   #Home .NFT-info {
-    background: url(../../../client/media/images/mushroom-1.png) lightgray 50%/cover no-repeat;
+    background: url(../media/images/mushroom-1.png) lightgray 50%/cover no-repeat;
   }
   #Home .NFT-info__gradient-container {
-    background: -webkit-gradient(linear, left top, left bottom, from(rgba(162, 89, 255, 0)), to(#a259ff));
     background: linear-gradient(180deg, rgba(162, 89, 255, 0) 0%, #a259ff 100%);
     padding-top: 360px;
     padding-bottom: 60px;
   }
+
   #Home .NFT-info__gradient-container .container {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1929,7 +1932,7 @@
   }
   #Home .NFT-info__left a {
     width: 198px;
-    display: -webkit-inline-box;
+    display: inline-flex;
     display: -ms-inline-flexbox;
     display: inline-flex;
     height: 60px;
@@ -2058,7 +2061,7 @@
     #Home .NFT-info .mobile {
       display: initial;
       width: 100%;
-      display: -webkit-inline-box;
+      display: inline-flex;
       display: -ms-inline-flexbox;
       display: inline-flex;
       height: 60px;
@@ -2343,7 +2346,7 @@
   }
   #Home .subscribe__right form button {
     width: 211px;
-    display: -webkit-inline-box;
+    display: inline-flex;
     display: -ms-inline-flexbox;
     display: inline-flex;
     height: 60px;
@@ -2437,7 +2440,7 @@
       border: 1px solid #858584;
     }
     #Home .subscribe__right form button {
-      display: -webkit-inline-box;
+      display: inline-flex;
       display: -ms-inline-flexbox;
       display: inline-flex;
       height: 60px;
@@ -2524,7 +2527,7 @@
       border: 1px solid #858584;
     }
     #Home .subscribe__right form button {
-      display: -webkit-inline-box;
+      display: inline-flex;
       display: -ms-inline-flexbox;
       display: inline-flex;
       height: 60px;
@@ -2616,7 +2619,7 @@
   #Create-account .create-account-section__left {
     height: 691px;
     width: 100%;
-    background: url(../../../client/media/images/create-account.png) center/cover no-repeat;
+    background: url(../media/images/create-account.png) center/cover no-repeat;
   }
   #Create-account .create-account-section__right {
     display: -webkit-box;
@@ -2695,7 +2698,7 @@
   }
   #Create-account .create-account-section__right__form button {
     margin-top: 20px;
-    display: -webkit-inline-box;
+    display: inline-flex;
     display: -ms-inline-flexbox;
     display: inline-flex;
     height: 46px;
@@ -2821,7 +2824,7 @@
   #Login .login-section__left {
     height: 691px;
     width: 100%;
-    background: url(../../../client/media/images/login.png) center/cover no-repeat;
+    background: url(../media/images/login.png) center/cover no-repeat;
   }
   #Login .login-section__right {
     display: -webkit-box;
@@ -2900,7 +2903,7 @@
   }
   #Login .login-section__right__form button {
     margin-top: 20px;
-    display: -webkit-inline-box;
+    display: inline-flex;
     display: -ms-inline-flexbox;
     display: inline-flex;
     height: 46px;
@@ -3923,14 +3926,13 @@
             animation: moveBox-9 4s infinite;
   }
   #Artist .cover {
-    background: url(../../../client/media/images/artist-page.png) lightgray 50%/cover no-repeat;
+    background: url(../media/images/artist-page.png) lightgray 50%/cover no-repeat;
   }
   #Artist .cover__gradient {
     height: 320px;
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(21.88%, rgba(151, 71, 255, 0)), color-stop(95.31%, #9747ff));
     background: linear-gradient(180deg, rgba(151, 71, 255, 0) 21.88%, #9747ff 95.31%);
   }
-  @media screen and (max-width: 1067px) {
+@media screen and (max-width: 1067px) {
     #Artist .cover__gradient {
       height: 280px;
     }
@@ -4048,14 +4050,18 @@
             transform: scale(0.9);
     cursor: pointer;
   }
-  #Artist .artist__left > img {
+  :root {
+    --Background: #2b2b2b; /* Определите цвет фона */
+  }
+
+#Artist .artist__left > img {
     position: absolute;
     left: 0;
     top: -160px;
     width: 120px;
     height: 120px;
     border-radius: 20px;
-    border: 2px solid var(--Background, #2b2b2b);
+    border: 2px solid var(--Background);
   }
   #Artist .artist__left__btns {
     display: -webkit-box;
@@ -4071,7 +4077,7 @@
   #Artist .artist__left__btns__copy-btn {
     border: none;
     width: 186px;
-    display: -webkit-inline-box;
+    display: inline-flex;
     display: -ms-inline-flexbox;
     display: inline-flex;
     height: 60px;
@@ -4100,7 +4106,7 @@
     width: 113px;
   }
   #Artist .artist__left__btns__follow-btn {
-    display: -webkit-inline-box;
+    display: inline-flex;
     display: -ms-inline-flexbox;
     display: inline-flex;
     height: 60px;
@@ -4136,7 +4142,7 @@
     text-transform: capitalize;
   }
   #Artist .artist__left__btns .following {
-    display: -webkit-inline-box;
+    display: inline-flex;
     display: -ms-inline-flexbox;
     display: inline-flex;
     height: 60px;
@@ -5600,28 +5606,29 @@
     right: 0;
     bottom: 0;
     left: 0;
-    -webkit-transform: translateX(-100%);
-            transform: translateX(-100%);
-    background-image: -webkit-gradient(linear, left top, right top, color-stop(0, rgba(255, 255, 255, 0)), color-stop(20%, rgba(255, 255, 255, 0.2)), color-stop(60%, rgba(255, 255, 255, 0.5)), to(rgba(255, 255, 255, 0)));
-    background-image: linear-gradient(90deg, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0.2) 20%, rgba(255, 255, 255, 0.5) 60%, rgba(255, 255, 255, 0));
-    -webkit-animation: shimmer 2s infinite;
-            animation: shimmer 2s infinite;
+    transform: translateX(-100%);
+    background-image: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 20%, rgba(255, 255, 255, 0.5) 60%, rgba(255, 255, 255, 0) 100%);
+    animation: shimmer 2s infinite;
     content: "";
   }
+  
   @keyframes shimmer {
+    0% {
+      transform: translateX(-100%); /* Начальная позиция */
+    }
     100% {
-      -webkit-transform: translateX(100%);
-              transform: translateX(100%);
+      transform: translateX(100%); /* Конечная позиция */
     }
   }
+  
   @media (max-width: 1067px) {
     #Rankings .artists__container__artist {
       height: 60px;
-      -webkit-column-gap: 20px;
-         -moz-column-gap: 20px;
-              column-gap: 20px;
+      column-gap: 20px;
     }
-    #Rankings .artists__container__artist__rank-artist {
+  }
+
+#Rankings .artists__container__artist__rank-artist {
       width: 410px;
     }
     #Rankings .artists__container__artist__rank-artist__rank {
@@ -5645,7 +5652,6 @@
     #Rankings .artists__container__artist__stats p:nth-child(2) {
       display: none;
     }
-  }
   @media (max-width: 707px) {
     #Rankings .artists__container__artist {
       padding: 12px 10px;
