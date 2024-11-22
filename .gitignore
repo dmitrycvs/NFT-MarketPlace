@@ -109,3 +109,6 @@ StyleCopReport.xml
 *.swp
 *.*swp
 *.docstates
+
+.idea
+__pycache__

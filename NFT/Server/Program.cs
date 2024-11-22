@@ -21,7 +21,6 @@ builder.Services.AddSingleton<IPaginationService, PaginationService>();
 builder.Services.AddValidatorsFromAssemblyContaining<CreateUserCommandValidator>();
 
 
-
 // Configure API versioning
 builder.Services.AddApiVersioning(options =>
 {
