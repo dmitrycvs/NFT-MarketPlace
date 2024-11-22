@@ -16,6 +16,7 @@ namespace NFT.Infrastructure
         public DbSet<NftItem> NftItems { get; set; }
         public DbSet<Collection> Collections { get; set; }
         public DbSet<HistoryLog> HistoryLogs { get; set; }
+        public DbSet<AuthRequest> AuthRequests { get; set; }
 
 
 

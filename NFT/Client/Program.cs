@@ -6,6 +6,7 @@ using NFT.Client.Services.NftServices;
 using NFT.Client.Services.RoleServices;
 using NFT.Client.Services.UserServices;
 using MudBlazor.Services;
+using NFT.Client.Services.MetaMaskServices;
 
 
 var builder = Microsoft.AspNetCore.Components.WebAssembly.Hosting.WebAssemblyHostBuilder.CreateDefault(args);
@@ -23,6 +24,7 @@ builder.Services.AddScoped<IRoleService, RoleService>();
 builder.Services.AddScoped<INftService, NftService>();
 builder.Services.AddScoped<ICollectionService, CollectionService>();
 builder.Services.AddScoped<IHistoryLogService, HistoryLogService>();
+builder.Services.AddScoped<MetaMaskService>();
 
 
 
