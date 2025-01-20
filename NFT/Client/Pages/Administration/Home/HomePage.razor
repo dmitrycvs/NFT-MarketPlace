@@ -6,6 +6,8 @@
 @inject MetaMaskService MetaMaskService
 @inject HttpClient Http
 @inject IHttpClientFactory HttpClientFactory
+@inject ISnackbar snackbar
+
 
 
 <!DOCTYPE html>
@@ -37,11 +39,10 @@
                 <NavLink href="#">Connect a wallet</NavLink>
                 <NavLink class="navbar__right__sign-up-btn">
                     <img src="media/icons/user.svg" alt="User icon" />
+                    <button @onclick="SignIn" class="btn">Sign In</button>
                 </NavLink>
-                <h3>Sign in with MetaMask</h3>
 
-                <button @onclick="SignIn">Sign in with MetaMask</button>
-            </div>
+                </div>
             <img id="burger-btn"
                  src="media/icons/burger.svg"
                  alt="Burger icon" />
@@ -516,22 +517,52 @@
 @code
 {    private string? acount;
 
-
-
     private async Task SignIn()
     {
         try
         {
+            // Check if MetaMask is installed
+            var isMetaMaskInstalled = await JSRuntime.InvokeAsync<bool>("ethereumInterop.isMetaMaskInstalled");
+
+            snackbar.Configuration.PositionClass = Defaults.Classes.Position.BottomRight;
+
+            if (!isMetaMaskInstalled)
+            {
+                snackbar.Add("MetaMask is not installed. Please install it to continue.", Severity.Error);
+                return;
+            }
+
+            snackbar.Add("MetaMask is installed. Proceeding to sign in...", Severity.Info);
+
+            // Request account and signature from MetaMask
             var account = await MetaMaskService.RequestAccountAsync();
             var message = "Sign this message to authenticate.";
             var signature = await MetaMaskService.SignMessageAsync(message);
 
-            // Отправляем подпись на сервер для проверки
+            // Authenticate with the server
             await AuthenticateOnServer(account, signature, message);
+
+            snackbar.Add("Signed in successfully!", Severity.Success);
         }
         catch (Exception ex)
         {
+            snackbar.Add($"Error: {ex.Message}", Severity.Error);
             Console.WriteLine($"Error: {ex.Message}");
+        }
+    }
+
+    private async Task CheckMetaMask()
+    {
+        var isMetaMaskInstalled = await JSRuntime.InvokeAsync<bool>("ethereumInterop.isMetaMaskInstalled");
+        snackbar.Configuration.PositionClass = Defaults.Classes.Position.BottomRight;
+
+        if (isMetaMaskInstalled)
+        {
+            snackbar.Add("MetaMask is installed. You can proceed!", Severity.Success);
+        }
+        else
+        {
+            snackbar.Add("MetaMask is not installed. Please install it to continue.", Severity.Error);
         }
     }
 

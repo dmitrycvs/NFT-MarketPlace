@@ -15,5 +15,8 @@ window.ethereumInterop = {
             params: [message, account],
         });
         return signature;
+    },
+    isMetaMaskInstalled: function () {
+        return typeof window.ethereum !== 'undefined';
     }
 };

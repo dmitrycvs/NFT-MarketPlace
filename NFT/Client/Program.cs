@@ -7,6 +7,7 @@ using NFT.Client.Services.RoleServices;
 using NFT.Client.Services.UserServices;
 using MudBlazor.Services;
 using NFT.Client.Services.MetaMaskServices;
+using MudBlazor;
 
 
 var builder = Microsoft.AspNetCore.Components.WebAssembly.Hosting.WebAssemblyHostBuilder.CreateDefault(args);
@@ -25,6 +26,18 @@ builder.Services.AddScoped<INftService, NftService>();
 builder.Services.AddScoped<ICollectionService, CollectionService>();
 builder.Services.AddScoped<IHistoryLogService, HistoryLogService>();
 builder.Services.AddScoped<MetaMaskService>();
+
+builder.Services.AddMudServices();
+
+/*builder.Services.AddMudServices(config =>
+{
+    config.SnackbarConfiguration.PositionClass = Defaults.Classes.Position.BottomCenter;
+    config.SnackbarConfiguration.PreventDuplicates = true;
+    config.SnackbarConfiguration.NewestOnTop = false;
+    config.SnackbarConfiguration.ShowCloseIcon = true;
+    config.SnackbarConfiguration.VisibleStateDuration = 5000; // 5 seconds
+    config.SnackbarConfiguration.SnackbarVariant = Variant.Filled;
+});*/
 
 
 
