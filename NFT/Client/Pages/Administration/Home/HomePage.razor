@@ -1,6 +1,13 @@
 ﻿@page "/administration/home"
+@using Services.MetaMaskServices
+@using NFT.Shared.DataTransferObjects.AuthRequests
 
 @inject IJSRuntime JSRuntime
+@inject MetaMaskService MetaMaskService
+@inject HttpClient Http
+@inject IHttpClientFactory HttpClientFactory
+@inject ISnackbar snackbar
+
 
 
 <!DOCTYPE html>
@@ -12,7 +19,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Work+Sans:wght@400;600&display=swap"
           rel="stylesheet" />
-    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="../css/main.css" />
     <link rel="stylesheet"
           type="text/css"
           href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
@@ -30,12 +37,12 @@
                 <NavLink href="/administration/marketplace">Marketplace</NavLink>
                 <NavLink href="Rankings">Rankings</NavLink>
                 <NavLink href="#">Connect a wallet</NavLink>
-                <NavLink href="CreateAccount"
-                         class="navbar__right__sign-up-btn">
+                <NavLink class="navbar__right__sign-up-btn">
                     <img src="media/icons/user.svg" alt="User icon" />
-                    <p>Sign Up</p>
+                    <button @onclick="SignIn" class="btn">Sign In</button>
                 </NavLink>
-            </div>
+
+                </div>
             <img id="burger-btn"
                  src="media/icons/burger.svg"
                  alt="Burger icon" />
@@ -90,7 +97,9 @@
             </div>
             <div class="trending__collection">
                 <div class="trending__collection__card">
-                    <div class="trending__collection__card__primary"></div>
+                    <div class="trending__collection__card__primary">
+                        @* <img src="media/images/data/cryptopunk27.jpg"/> *@
+                    </div>
                     <div class="trending__collection__card__secondary">
                         <div></div>
                         <div></div>
@@ -503,3 +512,87 @@
     <script src="js/HomePageScript.js"></script>
 </body>
 </html>
+
+
+@code
+{    private string? acount;
+
+    private async Task SignIn()
+    {
+        try
+        {
+            // Check if MetaMask is installed
+            var isMetaMaskInstalled = await JSRuntime.InvokeAsync<bool>("ethereumInterop.isMetaMaskInstalled");
+
+            snackbar.Configuration.PositionClass = Defaults.Classes.Position.BottomRight;
+
+            if (!isMetaMaskInstalled)
+            {
+                snackbar.Add("MetaMask is not installed. Please install it to continue.", Severity.Error);
+                return;
+            }
+
+            snackbar.Add("MetaMask is installed. Proceeding to sign in...", Severity.Info);
+
+            // Request account and signature from MetaMask
+            var account = await MetaMaskService.RequestAccountAsync();
+            var message = "Sign this message to authenticate.";
+            var signature = await MetaMaskService.SignMessageAsync(message);
+
+            // Authenticate with the server
+            await AuthenticateOnServer(account, signature, message);
+
+            snackbar.Add("Signed in successfully!", Severity.Success);
+        }
+        catch (Exception ex)
+        {
+            snackbar.Add($"Error: {ex.Message}", Severity.Error);
+            Console.WriteLine($"Error: {ex.Message}");
+        }
+    }
+
+    private async Task CheckMetaMask()
+    {
+        var isMetaMaskInstalled = await JSRuntime.InvokeAsync<bool>("ethereumInterop.isMetaMaskInstalled");
+        snackbar.Configuration.PositionClass = Defaults.Classes.Position.BottomRight;
+
+        if (isMetaMaskInstalled)
+        {
+            snackbar.Add("MetaMask is installed. You can proceed!", Severity.Success);
+        }
+        else
+        {
+            snackbar.Add("MetaMask is not installed. Please install it to continue.", Severity.Error);
+        }
+    }
+
+    private async Task AuthenticateOnServer(string account, string signature, string message)
+    {
+        AuthRequestDto authRequest = new AuthRequestDto
+            {
+                Account = account,
+                Signature = signature,
+                Message = message
+            };
+
+        var response = await Http.PostAsJsonAsync("api/auth/verify", authRequest);
+
+        if (response.IsSuccessStatusCode)
+        {
+            var result = await response.Content.ReadFromJsonAsync<AuthResponseDto>();
+            if (result?.Success == true)
+            {
+                Console.WriteLine("Authentication successful!");
+            }
+            else
+            {
+                Console.WriteLine("Authentication failed.");
+            }
+        }
+        else
+        {
+            Console.WriteLine("Server error: " + response.StatusCode);
+        }
+    }
+
+}
