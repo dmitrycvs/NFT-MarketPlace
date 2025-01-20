@@ -1,30 +1,25 @@
+#### Changer for November 8 - November 22, 2024
 
-### What's New?
+- Added a folder with 10,000 test NFT icons.
+- Fixed the display issues of some images on the frontend.
+- Integrated MetaMask wallet for seamless transaction handling.
+- Finalized QA documentation, including test plans for Functional Testing (User Registration, NFT Creation and Minting, Listing, Payment Integration, and Buying/Selling). The documentation covers objectives, scope, test cases, and criteria for pass/fail and bug reporting.
+- Created a new model for spam classification, including an extensive Exploratory Data Analysis (EDA) phase to analyze data patterns. The model also includes data preprocessing, feature selection, model training, and evaluation steps for improved classification accuracy.
+- Conducted model validation using cross-validation techniques and fine-tuned hyperparameters to ensure optimal performance across various datasets.
 
-We are excited to announce several important updates for the Big Data and NFT tracking application.
+#### Changes for October 23 - November 7, 2024
 
-### Key Updates:
+- Hyperparameter Optimization: Using grid search and random search for hyperparameter tuning in situations where a more exhaustive search was needed.
 
-- Big Data Integration: We've integrated Hadoop as the new backend storage solution, significantly improving scalability and performance for handling big data workloads.
+- Analysis of the NFT Market on Different Networks: Read articles about the characteristics of NFTs on different blockchains (Polygon, BNB Chain, Arbitrum, etc.) to understand their pros and cons. 
 
-- Cloud Deployment: The application has been fully migrated to AWS cloud infrastructure, enhancing flexibility and resource management.
+- Article on Smart Contract Security: Security is crucial in smart contract development. Go through Consensys: Smart Contract Security Best Practices to better understand how to protect your contracts from potential vulnerabilities.
 
-- NFT Data Tracking: We’ve implemented the OpenSea API to fetch and display detailed NFT data such as sales volume, average price, and number of owners, providing deeper insights into the market.
+- Implemented error handling for API response issues, including missing data and malformed JSON, through validation and testing.
 
-- Hyperparameter Optimization: We’ve refined our machine learning models with hyperparameter optimization techniques like grid search and random search to improve prediction accuracy for NFT price trends.
+- Secured the API key by storing it in the appSettings.json file after resolving initial configuration challenges.
 
-### Why the Change?
-
-*These updates are designed to:*
-
-- Improve Performance and Scalability: By integrating Hadoop, we can handle larger datasets more efficiently, making the system more scalable for big data tasks.
-
-- Enhance Data Access: Cloud deployment allows for faster data retrieval and processing, improving overall system responsiveness.
-
-- Increase Market Insights: By integrating the OpenSea API, we can provide up-to-date NFT data directly within the application, offering users richer insights into the NFT market.
-
-- Error Handling: With improved error handling in place, the application will now handle issues like missing or malformed data more gracefully, ensuring a smoother user experience.
-
+- Applied asynchronous programming to ensure smooth data fetching and UI updates, keeping the application responsive while waiting for API data.
 
 #### Changes for October 7 - October 19, 2024
 
@@ -41,18 +36,3 @@ We are excited to announce several important updates for the Big Data and NFT tr
 - Implemented error handling for invalid or missing data to ensure the application handled API failures gracefully.
 
 - Formatted and displayed the response data in a user-friendly format using Razor Pages, showcasing key metrics like sales volume, average price, and number of owners.
-
-
-#### Changes for October 23 - November 7, 2024
-
-- Hyperparameter Optimization: Using grid search and random search for hyperparameter tuning in situations where a more exhaustive search was needed.
-
-- Analysis of the NFT Market on Different Networks: Read articles about the characteristics of NFTs on different blockchains (Polygon, BNB Chain, Arbitrum, etc.) to understand their pros and cons. 
-
-- Article on Smart Contract Security: Security is crucial in smart contract development. Go through Consensys: Smart Contract Security Best Practices to better understand how to protect your contracts from potential vulnerabilities.
-
-- Implemented error handling for API response issues, including missing data and malformed JSON, through validation and testing.
-
-- Secured the API key by storing it in the appSettings.json file after resolving initial configuration challenges.
-
-- Applied asynchronous programming to ensure smooth data fetching and UI updates, keeping the application responsive while waiting for API data.
