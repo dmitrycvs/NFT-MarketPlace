@@ -37,16 +37,26 @@
                 <NavLink href="/administration/marketplace">Marketplace</NavLink>
                 <NavLink href="Rankings">Rankings</NavLink>
                 <NavLink href="#">Connect a wallet</NavLink>
-                <NavLink class="navbar__right__sign-up-btn">
+                <NavLink class="navbar__right__sign-up-btn" @onclick="SignIn">
                     <img src="media/icons/user.svg" alt="User icon" />
-                    <button @onclick="SignIn" class="btn">Sign In</button>
+                    <span>Sign In</span>
                 </NavLink>
 
-                </div>
+            </div>
             <img id="burger-btn"
                  src="media/icons/burger.svg"
                  alt="Burger icon" />
         </div>
+        <!-- Modal for MetaMask installation -->
+        <div id="metamask-modal" class="modal hidden">
+            <div class="modal-content">
+                <h2>MetaMask Not Installed</h2>
+                <p>To use this feature, please install the MetaMask browser extension.</p>
+                <a href="https://metamask.io/download.html" target="_blank" class="install-btn">Install MetaMask</a>
+                <button id="close-modal" class="close-btn">Close</button>
+            </div>
+        </div>
+
     </section>
     <section class="hero">
         <div class="container">
@@ -510,6 +520,7 @@
     <script src="common/email-verification.js"></script>
     <script src="common/sidebar.js"></script>
     <script src="js/HomePageScript.js"></script>
+    <script src="js/metamaskInterop.js"></script>
 </body>
 </html>
 
@@ -529,6 +540,9 @@
             if (!isMetaMaskInstalled)
             {
                 snackbar.Add("MetaMask is not installed. Please install it to continue.", Severity.Error);
+
+                // Показываем модальное окно, если MetaMask не установлен
+                await JSRuntime.InvokeVoidAsync("ethereumInterop.showMetaMaskModal");
                 return;
             }
 
@@ -551,20 +565,22 @@
         }
     }
 
+
     private async Task CheckMetaMask()
     {
         var isMetaMaskInstalled = await JSRuntime.InvokeAsync<bool>("ethereumInterop.isMetaMaskInstalled");
-        snackbar.Configuration.PositionClass = Defaults.Classes.Position.BottomRight;
 
         if (isMetaMaskInstalled)
         {
-            snackbar.Add("MetaMask is installed. You can proceed!", Severity.Success);
+            snackbar.Add("MetaMask is installed and ready to use.", Severity.Success);
         }
         else
         {
             snackbar.Add("MetaMask is not installed. Please install it to continue.", Severity.Error);
+            await JSRuntime.InvokeVoidAsync("ethereumInterop.showMetaMaskModal"); // Показать модальное окно
         }
     }
+
 
     private async Task AuthenticateOnServer(string account, string signature, string message)
     {
