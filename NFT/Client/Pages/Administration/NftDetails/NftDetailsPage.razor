@@ -1,0 +1,152 @@
+﻿@page "/administration/nftdetails/{id:guid}"
+@using MudBlazor.Components
+
+<link rel="stylesheet" href="../css/main.css" />
+<link rel="stylesheet" href="css/pages/NftDetails.css" />
+
+<body id="Home">
+    <section class="navbar">
+        <NavLink class="navbar__left" href="Home">
+            <img src="media/icons/store.svg" alt="Store icon" />
+            <img src="media/icons/NFTMarketplace.svg" alt="NFT Marketplace" />
+        </NavLink>
+        <div class="navbar__right">
+            <div class="navbar__right sidebar">
+                <NavLink href="/administration/marketplace">Marketplace</NavLink>
+                <NavLink href="Rankings">Rankings</NavLink>
+                <NavLink href="#">Connect a wallet</NavLink>
+                <NavLink class="navbar__right__sign-up-btn" @onclick="SignIn">
+                    <img src="media/icons/user.svg" alt="User icon" />
+                    <span>Sign In</span>
+                </NavLink>
+
+            </div>
+            <img id="burger-btn"
+                 src="media/icons/burger.svg"
+                 alt="Burger icon" />
+        </div>
+        <!-- Modal for MetaMask installation -->
+        <div id="metamask-modal" class="modal hidden">
+            <div class="modal-content">
+                <h2>MetaMask Not Installed</h2>
+                <p>To use this feature, please install the MetaMask browser extension.</p>
+                <a href="https://metamask.io/download.html" target="_blank" class="install-btn">Install MetaMask</a>
+                <button id="close-modal" class="close-btn">Close</button>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="nft-details">
+        <div class="container nft-details-content">
+            <div class="nft-left">
+                <div class="nft-image-container-with-likes">
+                    <div class="nft-image-container">
+                        <img class="nft-image" src="media/images/robot-1.png" alt="NFT Image" />
+                    </div>
+                    <div class="nft-likes-container">
+                        <img src="media/icons/heart.svg" alt="Heart icon" class="heart-icon" />
+                        <span class="likes-count">102</span>
+                    </div>
+                </div>
+            </div>
+            <div class="nft-right">
+                <h1 class="nft-title">Magic Mushrooms</h1>
+                <p class="nft-owner">Owned by: <span class="nft-owner-name">Shroomie</span></p>
+
+                <div class="nft-description">
+
+                    <div class="nft-price">
+                        <span>Price:</span> <strong>0.35 ETH</strong>
+                    </div>
+
+
+                    <div class="nft-actions">
+                        <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="SellNft">Buy Now</MudButton>
+                        <MudButton Variant="Variant.Filled" Color="Color.Secondary" OnClick="EditNft">Make offer</MudButton>
+                    </div>
+                    <h3>Description</h3>
+                    <p>Explore the world of psychedelic art with Magic Mushrooms NFT. A stunning piece of digital art that captivates the imagination.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="trending">
+        <div class="container">
+            <div class="trending__header">
+                <h3>From the same Author</h3>
+                <p>Checkout new author's collection'.</p>
+            </div>
+            <div class="trending__collection">
+                <div class="trending__collection__card">
+                    <div class="trending__collection__card__primary">
+                        @* <img src="media/images/data/cryptopunk27.jpg"/> *@
+                    </div>
+                    <div class="trending__collection__card__secondary">
+                        <div></div>
+                        <div></div>
+                        <div>1025+</div>
+                    </div>
+                    <div class="trending__collection__card__text">
+                        <h5>Dsgn Animals</h5>
+                        <div class="trending__collection__card__text__artist">
+                            <div></div>
+                            <p>MrFox</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="trending__collection__card">
+                    <div class="trending__collection__card__primary"></div>
+                    <div class="trending__collection__card__secondary">
+                        <div></div>
+                        <div></div>
+                        <div>1025+</div>
+                    </div>
+                    <div class="trending__collection__card__text">
+                        <h5>Magic Mushrooms</h5>
+                        <div class="trending__collection__card__text__artist">
+                            <div></div>
+                            <p>Shroomie</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="trending__collection__card">
+                    <div class="trending__collection__card__primary"></div>
+                    <div class="trending__collection__card__secondary">
+                        <div></div>
+                        <div></div>
+                        <div>1025+</div>
+                    </div>
+                    <div class="trending__collection__card__text">
+                        <h5>Disco Machines</h5>
+                        <div class="trending__collection__card__text__artist">
+                            <div></div>
+                            <p>BeKind2Robots</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+@code {
+    [Parameter] public Guid Id { get; set; }
+
+    private async Task SellNft()
+    {
+        // Placeholder action for selling NFT
+    }
+
+
+    private async Task EditNft()
+    {
+        // Placeholder action for selling NFT
+    }
+
+    private async Task SignIn()
+    {
+        // Placeholder SignIn method
+    }
+}
