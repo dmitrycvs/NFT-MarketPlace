@@ -86,7 +86,7 @@ function createArtistBox(artist, artistsContainer) {
     artistId.textContent = artist.id;
 
     const artistAvatar = document.createElement("img");
-    artistAvatar.src = `../../../${artist.profileImgPath}`;
+    artistAvatar.src = `../../media/${artist.profileImgPath}`;
     artistAvatar.alt = artist.name;
 
     topPart.appendChild(artistId);

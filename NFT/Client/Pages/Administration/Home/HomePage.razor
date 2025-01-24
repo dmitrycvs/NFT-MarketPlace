@@ -13,6 +13,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style>
+        a {
+            text-decoration: none; /* Removes underline */
+            color: inherit; /* Inherits color from parent element */
+        }
+
+            a:hover {
+                text-decoration: none; /* Ensure no underline on hover */
+                color: #a259ff; /* Optional: Add a hover color if desired */
+            }
+    </style>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -28,15 +39,15 @@
 </head>
 <body id="Home">
     <section class="navbar">
-        <NavLink class="navbar__left" href="Home">
+        <NavLink class="navbar__left" href="/administration/home">
             <img src="media/icons/store.svg" alt="Store icon" />
             <img src="media/icons/NFTMarketplace.svg" alt="NFT Marketplace" />
         </NavLink>
         <div class="navbar__right">
             <div class="navbar__right sidebar">
                 <NavLink href="/administration/marketplace">Marketplace</NavLink>
-                <NavLink href="Rankings">Rankings</NavLink>
-                <NavLink href="#">Connect a wallet</NavLink>
+                <NavLink href="/administration/rankings">Rankings</NavLink>
+                <NavLink href="#">Inventory</NavLink>
                 <NavLink class="navbar__right__sign-up-btn" @onclick="SignIn">
                     <img src="media/icons/user.svg" alt="User icon" />
                     <span>Sign In</span>
@@ -126,7 +137,7 @@
                 <div class="trending__collection__card">
                     <div class="trending__collection__card__primary"></div>
                     <div class="trending__collection__card__secondary">
-                        <div></div>
+                        <div> </div>
                         <div></div>
                         <div>1025+</div>
                     </div>
@@ -180,11 +191,10 @@
                 <div class="skeleton"></div>
             </div>
             <div class="top-artists__artists"></div>
-            <a href="pages/rankings/index.html">
+            <a href="pages/rankings/index.html" class="top-artists__mobile-btn">
                 @*Тут нужно поменять ссылку на формат /administration/rankings в 
 
                 зависимости как твоя страница ranking будет называться*@
-               class="top-artists__mobile-btn">
                 <img src="media/icons/user.svg" alt="user icon" />
                 <p>View Rankings</p>
             </a>
@@ -291,9 +301,11 @@
             </div>
             <div class="discover__nft-container">
                 <div class="discover__nft-container__nft">
-                    <img src="media/images/nft-1.png" alt="Spaceship NFT" />
-                    <div class="discover__nft-container__nft__text">
-                        <h5>Distant Galaxy</h5>
+                    
+                        <img src="media/images/nft-1.png" alt="Spaceship NFT" />
+
+                        <div class="discover__nft-container__nft__text">
+                        <a href="/administration/nftdetails/"><h5>Distant Galaxy</h5></a>
                         <div class="discover__nft-container__nft__text__artist">
                             <img src="media/images/avatars/MoonDancer.png"
                                  alt="MoonDancer avatar" />

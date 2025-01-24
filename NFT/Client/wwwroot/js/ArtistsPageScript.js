@@ -103,7 +103,7 @@ function fillArtistPage(artist) {
   document.querySelector(".artist__left h2").textContent = artist.name;
   document.querySelector(
     ".artist__left img"
-  ).src = `../../../${artist.profileImgPath}`;
+  ).src = `../../media/${artist.profileImgPath}`;
   document.querySelector(".artist__left__bio p").textContent = artist.bio;
   editedArtistVolume = formatNumberInThousands(artist.volume);
   document.querySelector(
@@ -161,8 +161,8 @@ function fillArtistPage(artist) {
 function createNftCard(artist, nft) {
   const nftCard = document.createElement("div");
   nftCard.classList.add("nft-cards__card");
-  const nftSrc = `../../../${nft.imgPath}`;
-  const avatarSrc = `../../../${artist.profileImgPath}`;
+    const nftSrc = `../../media/${nft.imgPath}`;
+    const avatarSrc = `../../media/${artist.profileImgPath}`;
   nftCard.innerHTML = `
   <div id="heart-icon">
         <img
