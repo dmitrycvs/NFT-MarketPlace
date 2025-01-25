@@ -109,12 +109,12 @@ function renderNFTs(nfts, container) {
       src="/media/icons/heart.svg"
       alt="heart icon"
     />
-  </div>
-      <img src="/${nft.imgPath}" alt="${nft.name}" />
+    </div>
+      <img src="../../media/${nft.imgPath}" alt="${nft.name}" />
         <div class="nft-container__nft__text">
           <h5>${nft.name}</h5>
           <div class="nft-container__nft__text__artist">
-            <img src="${nft.creator.profileImgPath}" alt=${nft.creator.name} />
+            <img src="../../media/${nft.creator.profileImgPath}" alt=${nft.creator.name} />
             <span>${nft.creator.name}</span>
           </div>
           <div class="nft-container__nft__text__details">
@@ -127,7 +127,7 @@ function renderNFTs(nfts, container) {
               <p>${nft.highestBid.value} ${nft.highestBid.currency}</p>
             </div>
           </div>
-        </div>
+    </div>
       `;
     const heartIcon = nftElement.querySelector("#heart-icon");
     const isFavorite = checkIfFavorite(nft.name, nft.creator.name);

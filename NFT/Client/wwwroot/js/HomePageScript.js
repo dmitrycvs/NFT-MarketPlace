@@ -1,31 +1,34 @@
 //For Timer
 //November 30, 2023, at 00:00:00
-var date = new Date(Date.UTC(2023, 10, 30, 0, 0, 0));
-date.setHours(date.getHours() - 4); //GMT+4
+var date = new Date(Date.UTC(2023, 10, 30, 0, 0, 0)); // UTC дата
+date.setHours(date.getHours() + 4); // GMT+4
 
 function updateTimer() {
-    var now = new Date().getTime();
-    var remainingTime = date - now;
+    var now = new Date().getTime()
+    var remainingTime = date.getTime() - now;
 
     if (remainingTime <= 0) {
         document.getElementById("hours").textContent = "23";
         document.getElementById("minutes").textContent = "12";
         document.getElementById("seconds").textContent = "01";
-    } else {
-        var hours = Math.floor(remainingTime / (1000 * 60 * 60));
-        var minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
-
-        document.getElementById("hours").textContent =
-            hours < 10 ? "0" + hours : hours;
-        document.getElementById("minutes").textContent =
-            minutes < 10 ? "0" + minutes : minutes;
-        document.getElementById("seconds").textContent =
-            seconds < 10 ? "0" + seconds : seconds;
+        return;
     }
+
+    var hours = Math.floor(remainingTime / (1000 * 60 * 60));
+    var minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+
+    document.getElementById("hours").textContent =
+        hours < 10 ? "0" + hours : hours;
+    document.getElementById("minutes").textContent =
+        minutes < 10 ? "0" + minutes : minutes;
+    document.getElementById("seconds").textContent =
+        seconds < 10 ? "0" + seconds : seconds;
 }
 
-setInterval(updateTimer, 1000);
+document.addEventListener("DOMContentLoaded", function () {
+    setInterval(updateTimer, 1000);
+});
 
 //API part:
 
