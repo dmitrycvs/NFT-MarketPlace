@@ -82,7 +82,7 @@ function createArtistBox(artist, artistsContainer) {
   <div class="artists__container__artist__rank-artist__rank">${artist.id}</div>
   <div class="artists__container__artist__rank-artist__artist">
     <img
-      src="../../../${artist.profileImgPath}"
+      src="../../media/${artist.profileImgPath}"
       alt="${artist.name} avatar"
     />
     <h5>${artist.name}</h5>
