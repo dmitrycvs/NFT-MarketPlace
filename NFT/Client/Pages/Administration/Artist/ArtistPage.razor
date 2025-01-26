@@ -1,3 +1,7 @@
+@page "/administration/artists/{id:guid}"
+
+@inject NavigationManager NavigationManager
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,13 +13,13 @@
       href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Work+Sans:wght@400;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../../sass/main.css" />
+    <link rel="stylesheet" href="../css/main.css" />
     <link
       rel="stylesheet"
       type="text/css"
       href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
     />
-    <link rel="icon" type="image/x-icon" href="../../media/icons/fox.svg" />
+    <link rel="icon" type="image/x-icon" href="media/icons/fox.svg" />
     <title>Artist</title>
   </head>
   <body id="Artist">
@@ -33,35 +37,25 @@
       </div>
     </section>
     <section class="navbar">
-      <a
-        class="navbar__left"
-        href="../../../client/pages/home/index.html"
-        ><img src="../../media/icons/store.svg" alt="Store icon" />
-        <img src="../../media/icons/NFTMarketplace.svg" alt="NFT Marketplace"
-      /></a>
+       <NavLink class="navbar__left" href="/administration/home">
+
+        <img src="media/icons/store.svg" alt="Store icon" />
+        <img src="media/icons/NFTMarketplace.svg" alt="NFT Marketplace" />
+        </NavLink>
       <div class="navbar__right">
         <div class="navbar__right sidebar">
-          <a href="../../../client/pages/marketplace/index.html"
-            >Marketplace</a
-          >
-          <a href="../../../client/pages/rankings/index.html"
-            >Rankings</a
-          >
-          <a href="#">Connect a wallet</a>
-          <a
-            href="../../../client/pages/create-account/index.html"
-            class="navbar__left__btns__sign-up-btn"
-          >
-            <img src="../../media/icons/user.svg" alt="User icon" />
-            <p>Sign up</p>
-          </a>
+                <NavLink href="/administration/marketplace">Marketplace</NavLink>
+                <NavLink href="/administration/rankings">Rankings</NavLink>
+                <NavLink href="#">Inventory</NavLink>
+                <NavLink class="navbar__right__sign-up-btn">
+                    <img src="media/icons/user.svg" alt="User icon" />
+                    <span>Sign In</span>
+                </NavLink>
+            </div>
+            <img id="burger-btn"
+                 src="media/icons/burger.svg"
+                 alt="Burger icon" />
         </div>
-        <img
-          id="burger-btn"
-          src="../../media/icons/burger.svg"
-          alt="Burger icon"
-        />
-      </div>
     </section>
     <section class="cover">
       <div class="cover__gradient"></div>
@@ -73,11 +67,11 @@
           <h2></h2>
           <div class="artist__left__btns">
             <button class="artist__left__btns__copy-btn">
-              <img src="../../media/icons/copy.svg" alt="copy icon" />
-              <p></p>
+              <img src="media/icons/copy.svg" alt="copy icon" />
+              <p>Copy Name</p>
             </button>
             <button href="#" class="artist__left__btns__follow-btn">
-              <img src="../../media/icons/plus.svg" alt="plus icon" />
+              <img src="media/icons/plus.svg" alt="plus icon" />
               <p>Follow</p>
             </button>
           </div>
@@ -102,21 +96,20 @@
           <div class="artist__left__links">
             <h5>Links</h5>
             <div>
-              <img src="../../media/icons/globe.svg" alt="globe icon" />
               <img
-                src="../../media/icons/discord-logo.svg"
+                src="media/icons/discord-logo.svg"
                 alt="discord logo"
               />
               <img
-                src="../../media/icons/youtube-logo.svg"
+                src="media/icons/youtube-logo.svg"
                 alt="youtube logo"
               />
               <img
-                src="../../media/icons/twitter-logo.svg"
+                src="media/icons/twitter-logo.svg"
                 alt="twitter logo"
               />
               <img
-                src="../../media/icons/instagram-logo.svg"
+                src="media/icons/instagram-logo.svg"
                 alt="instagram logo"
               />
             </div>
@@ -153,9 +146,9 @@
         <div class="footer__top">
           <div class="footer__top__left">
             <div class="footer__top__left__header">
-              <img src="../../media/icons/store.svg" alt="store logo" />
+              <img src="media/icons/store.svg" alt="store logo" />
               <img
-                src="../../media/icons/NFTMarketplace.svg"
+                src="media/icons/NFTMarketplace.svg"
                 alt="NFT Marketplace"
               />
             </div>
@@ -164,37 +157,32 @@
             <div class="footer__top__left__icons">
               <a href=""
                 ><img
-                  src="../../media/icons/discord-logo.svg"
+                  src="media/icons/discord-logo.svg"
                   alt="Discord Logo"
               /></a>
               <a href=""
                 ><img
-                  src="../../media/icons/youtube-logo.svg"
+                  src="media/icons/youtube-logo.svg"
                   alt="Youtube Logo"
               /></a>
               <a href=""
                 ><img
-                  src="../../media/icons/twitter-logo.svg"
+                  src="media/icons/twitter-logo.svg"
                   alt="Twitter Logo"
               /></a>
               <a href=""
                 ><img
-                  src="../../media/icons/instagram-logo.svg"
+                  src="media/icons/instagram-logo.svg"
                   alt="Instagram Logo"
               /></a>
             </div>
           </div>
           <div class="footer__top__middle">
-            <h5>Explore</h5>
-            <div class="footer__top__middle__pages">
-              <a
-                href="../../../client/pages/marketplace/index.html"
-                >Marketplace</a
-              >
-              <a href="../../../client/pages/rankings/index.html"
-                >Rankings</a
-              >
-              <a href="#">Connect a wallet</a>
+           <h5>Explore</h5>
+           <div class="footer__top__middle__pages">
+               <a href="pages/marketplace/index.html">Marketplace</a>
+               <a href="pages/rankings/index.html">Rankings</a>
+               <a href="#">Connect a wallet</a>
             </div>
           </div>
           <div class="footer__top__right">
@@ -205,7 +193,7 @@
                 <input placeholder="Enter your email" class="emailInput" />
                 <button type="submit">
                   <img
-                    src="../../media/icons/envelope.svg"
+                    src="media/icons/envelope.svg"
                     alt="envelope icon"
                   />Subscribe
                 </button>
@@ -213,18 +201,34 @@
             </div>
           </div>
         </div>
-        <div class="footer__bottom">
-          <div class="footer__bottom__divider"></div>
-          <p>Ⓒ NFT Market. Use this template freely.</p>
-        </div>
+            <div class="footer__bottom">
+                <div class="footer__bottom__divider"></div>
+                <p>All rights reserved Ⓒ 2025</p>
+            </div>
       </div>
     </section>
     <script
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/toastify-js"
     ></script>
-    <script src="../../common/js/email-verification.js"></script>
-    <script src="../../common/js/sidebar.js"></script>
-    <script src="./script.js"></script>
+    <script type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="common/email-verification.js"></script>
+    <script src="common/sidebar.js"></script>
+    <script src="js/ArtistsPageScript.js"></script>
   </body>
 </html>
+
+@code {
+    [Parameter]
+    public Guid Id { get; set; }
+
+    protected override void OnInitialized()
+    {
+        // Use a hardcoded ID if none is provided
+        if (Id == Guid.Empty)
+        {
+            Id = new Guid("00000000-0000-0000-0000-000000000010");
+        }
+    }
+}

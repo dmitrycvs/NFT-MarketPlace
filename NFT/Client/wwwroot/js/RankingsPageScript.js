@@ -94,7 +94,7 @@ function createArtistBox(artist, artistsContainer) {
   <p>${artist.volume.substring(0, artist.volume.length - 3)}k</p>
   <div class="delete-btn">
     <img
-      src="../../media/icons/trash-bin.svg"
+      src="media/icons/trash-bin.svg"
       alt="trash bin icon"
     />
   </div>

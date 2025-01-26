@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Pages\Administration\Artist\ArtistPage.razor" />
     <Content Remove="Pages\Administration\Login\LoginPage.razor" />
     <Content Remove="wwwroot\js\metamaskInterop.js" />
   </ItemGroup>
@@ -42,6 +41,7 @@
     <None Include="Pages\Administration\Home\HomePage.razor" />
     <None Include="Pages\Administration\Login\LoginPage.razor" />
     <None Include="Pages\Administration\Marketplace\MarketplacePage.razor" />
+    <None Include="Pages\Administration\Rankings\RankingsPage.razor" />
     <None Include="wwwroot\js\ArtistsPageScript.js" />
     <None Include="wwwroot\js\CreateAccountPageScript.js" />
     <None Include="wwwroot\js\HomePageScript.js" />
