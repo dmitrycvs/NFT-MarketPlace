@@ -48,7 +48,9 @@
     <None Include="wwwroot\js\LoginPageScript.js" />
     <None Include="wwwroot\js\MarketplacePageScript.js" />
     <None Include="wwwroot\js\metamaskInterop.js" />
-    <None Include="wwwroot\js\RankingsPageScript.js" />
+	<None Include="wwwroot\common\email-verification.js" />
+	<None Include="wwwroot\common\sidebar.js" />
+	<None Include="wwwroot\js\RankingsPageScript.js" />
   </ItemGroup>
 
 </Project>
